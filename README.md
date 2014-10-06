@@ -3,7 +3,7 @@
 
 This is a curated compilation of notes and sample scipts that grows and matures as we develop more and more with Laravel 4.
 
-* full index
+* [full index](https://github.com/outboundexplorer/laravel-insights/blob/master/index.md)
 * samples index
 * notes index
 
