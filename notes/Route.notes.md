@@ -135,6 +135,7 @@ Route::get('secret/content', array(
 				return 'This is accessed with https!';
 			})
 );
+``` 
 
 ###attaching conditionals to a route
 
