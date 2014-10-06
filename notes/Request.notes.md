@@ -107,3 +107,38 @@ So that even if we are looking for `$_GET` data that is not present in the URL s
 * By providing a default string, we can be sure that when something goes wrong, the value will still be a string.
 
 ___
+
+###Input::has()
+
+```php
+// app/routes.php
+
+Route::get('test',function()
+{
+    if (Input::has('one'))
+    {
+        return "URL has 'one'!";
+    }
+    return "URL does not have 'one'!";
+});
+```
+
+If we pass the following `$_GET` data to the URL: `http://laravel_testlab/test?one=two`
+
+```php
+// OUTPUT >>> URL has 'one'! 
+```
+
+and if we pass the following `$_GET` data to the URL: `http://laravel_testlab/test?two=one`
+
+```php
+// OUTPUT >>> URL does not have 'one'! 
+```
+
+* Use `Input::has()` to check whether a certain variable is present.
+* `Input::has()` returns a boolean value.
+
+
+
+___
+
