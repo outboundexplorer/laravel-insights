@@ -6,7 +6,7 @@ class ProfileController extends BaseController {
     public function user($username)
     {
 
-        $user = User::where('username','=',$username);
+        $user = Member::where('username','=',$username);
 
         if($user->count())
         {
