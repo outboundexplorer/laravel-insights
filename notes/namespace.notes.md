@@ -15,5 +15,7 @@ ___
 * **routes.php** is in the Illuminate namespace therefore any classes that are used from different namespaces must be declared in full
 
 * Any new namespaces that we create must be declared in the **composer.json** file using **psr-o** autoloading entry. (We must then run **composer dump** from the command line in order to include the new class autoloader in composer)
+* 
+
 
 
