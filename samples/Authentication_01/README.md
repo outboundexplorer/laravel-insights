@@ -7,8 +7,8 @@ ___
 * Sign in form with validation
 * Send code via email for email account verification
 * Recover Password functionlity
-* **csrf** protection filter
-* **auth** filter
+* **'csrf'** protection filter
+* **'auth'** filter
 
 ___
 
