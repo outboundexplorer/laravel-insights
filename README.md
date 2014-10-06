@@ -12,4 +12,4 @@ or
 
 * Fork the repository on GitHub.
 * Make updates to your code (edit or create new content).
-* Submit a Pull Request (please submit a seperate request for each update where possible :).
+* Submit a Pull Request (please submit a seperate request for each update where possible :)
