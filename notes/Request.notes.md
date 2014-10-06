@@ -53,7 +53,9 @@ Route::post('request', function()
 });
 ```
 
-`OUTPUT >>> array(3) { ["_token"]=> string(40) "lG4InXHkPBxX336q2lpFbwlYN1mqAwXILNGj5B7S" ["foo"]=> string(6) "foofoo" ["bar"]=> string(6) "barbar" }` 
+```php
+// OUTPUT >>> array(3) { ["_token"]=> string(40) "lG4InXHkPBxX336q2lpFbwlYN1mqAwXILNGj5B7S" ["foo"]=> string(6) "foofoo" ["bar"]=> string(6) "barbar" }
+```
 
 * In the example a simple form was created that submitted two hidden fields `foo` and `bar` with values of 'foofoo' and 'barbar'.  
 * The form was submitted via a POST request to the url 'request'.  
@@ -82,6 +84,7 @@ We then provide a URL with some `GET` data as: `http://laravel_testlab/test?one=
 * When we use the `Input::get()` method a single piece of data is returned
 * If we had not inserted any `$_GET` data for 'two' then we would have received a `NULL` value
 
+___
 
 ###using a default with Input:;get()
 
