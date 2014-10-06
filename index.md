@@ -1,15 +1,11 @@
+#Notes
 
 
 
-#PHP-primers
-* [json.md](https://github.com/outboundexplorer/insiite/blob/master/PHP-primers/json.md)
+___
 
+#Samples
 
-#Laravel
-###Route
-* [notes](https://github.com/outboundexplorer/insiite/blob/master/Route/notes.md)
-		
-###Blade
-* [notes](https://github.com/outboundexplorer/insiite/blob/master/Blade/notes.md)
-		
-		
+###Authentication
+
+* [authentication_01](https://github.com/outboundexplorer/laravel-insights/tree/master/samples/Authentication_01): user-input validation, named routes, app-logic in controller, email activation code, recover password, 'remember me', csrf protection filter, auth before filter
