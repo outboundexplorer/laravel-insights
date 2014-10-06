@@ -77,6 +77,18 @@ Class Song extends Eloquent {
 }
 ```
 
+
+```php
+Class Artist extends Eloquent {
+
+	public function assocSong()
+	{
+		return $this->hasMany(‘Song’);
+	}
+}
+```
+
+
 We can save data to the database using either of the following methods:
 
 ```php
