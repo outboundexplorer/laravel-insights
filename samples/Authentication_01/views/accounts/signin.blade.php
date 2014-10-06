@@ -24,5 +24,3 @@
          {{ Form::submit('Sign In') }}
          {{ Form::close() }}
      @stop
-
-     <!-- >>> GOTO routes.php (sign-in.post) -->
