@@ -6,7 +6,12 @@ Resources and insights picked up along the way when developing laravel websites.
 
 ##How to Contribute
 * Submit any issues that you find; Please explain as fully as possible.
-* Submit additional content with a Pull Request(Please make an individual pull request for each item)
+
+or
+
+
+* Fork the repository
+* edit or create new contentadditional content with a Pull Request(Please make an individual pull request for each item)
 * Use the following format for links: \[Resource\]\(LINK\)
 * Use the following format for packages: \[Package\]\(LINK\) - Short description
 * New categories or improvements to the existing categorisation are welcome
