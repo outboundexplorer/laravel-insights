@@ -17,5 +17,7 @@ or
 * Make updates to your code (edit or create new content).
 * Submit a Pull Request (please submit a seperate request for each update where possible :)
 
+___
+
 ####Further reading
 As with any compilation of knowledge, resources are borrowed, absorbed and put back together.  Here is a list of some of the great resources that have helped this compilation. 
