@@ -22,6 +22,9 @@
   + [named routing](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#named-routing)
   + [Redirect::route()](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#redirectroutefaqs)
   + [secure routes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#secure-routes)
+  + [attaching conditionals to a route](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#attaching-conditionals-to-a-route)
+  + [attaching multiple conditionals to a route](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#attaching-multiple-conditionals-to-a-route)
+  + 
 
 
 
