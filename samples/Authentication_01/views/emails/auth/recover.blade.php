@@ -1,5 +1,5 @@
 {{--
-NOTE 0: The $username, $password and $link are from the 'username', 'password' and 'link' keys which have been
+note: The $username, $password and $link are from the 'username', 'password' and 'link' keys which have been
         passed to this file from the array() in the Mail::Send() method.
 --}}
 
