@@ -1,5 +1,5 @@
 
 ###Comprehensive teaching
 
-* [CodeBright](http://daylerees.com/codebright/codebright)
+* [Code Bright](http://daylerees.com/codebright/codebright)
 
