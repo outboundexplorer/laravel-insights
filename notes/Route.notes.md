@@ -109,4 +109,31 @@ class PagesController extends BaseController {
 ```
 
 * Using named routes using an Alias allows us to keep things simple when we need to reference the route.
+* We can use the `uses` parameter to route directly to a specific action of the controller.
+
+___
+
+###Redirect::route('faqs')
+
+```php
+return Redirect::route('faqs');
+```
+
+* redirect to the named route 'faqs'
+
+___
+
+###secure routes
+
+```php
+// app/routes.php
+
+Route::get('secret/content', array(
+			'https',
+			function ()
+			{
+				return 'This is accessed with https!';
+			})
+);
+
 
