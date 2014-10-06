@@ -16,8 +16,8 @@
 * [ELoquent](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Eloquent.notes.md)
 * [Filter](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Filter.notes.md)
 * [Route](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md)
- ..* [General notes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#general-notes)
- ..* [Basic routing](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#basic-routing)
+  * [General notes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#general-notes)
+  * [Basic routing](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#basic-routing)
 
 * 
 
