@@ -44,6 +44,7 @@ Route::get('relevant/URI', array(
 Route::get('example',function(){
     return URL::route('named.route');
 });
+```
 
 ```php
 OUTPUT >>> http://laravel_testlab/relevant/URI
@@ -99,8 +100,8 @@ ___
 
 ###shortcuts
 
-* **url(‘relevant/URI’)** can be used in the same way the same way that we use **URL::to(‘relevant/URI’)**.
-* **secure_url(‘relevant/URI’)** can be used in the same way as **URL::secure(‘relevant/URI’)**
+* `url(‘relevant/URI’)` can be used in the same way the same way that we use `URL::to(‘relevant/URI’)`.
+* `secure_url(‘relevant/URI’)` can be used in the same way as `URL::secure(‘relevant/URI’)`
 * **route(‘named.route’)** can be used in the same way as **URL::route(‘named.route’)**
 * **action(‘ControllerName@actionName’)** can be used the same way as **URL::action(‘ControllerName@actionName’)**
 * **asset(‘relevant/URI’)** can be used the same way as **URL::asset(‘relevant/URI’)**
