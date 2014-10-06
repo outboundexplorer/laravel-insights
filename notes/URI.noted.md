@@ -1,12 +1,17 @@
 ###URL::to(relevant_URI)
-* **URL::to(‘relevant_URI’)** will provide the full URL (but will not take the browser to that URL)
+* **URL::to(‘relevant/URI’)** will provide the full URL (but will not take the browser to that URL)
+
+
+```php
+OUTPUT >>> https://laravel_testlab/relevant/URI/route/foo/bar
+```
 
 ___
 
-###passing parameters to URL::to('another_URI, array('foo','bar'), true)
+###passing parameters to URL::to('another/URI, array('foo','bar'), true)
 
 ```php
-OUTPUT >>> https://laravel_testlab/another/route/foo/bar
+OUTPUT >>> https://laravel_testlab/another/URI/foo/bar
 ```
  
 * different parameters can be passed to the URI using the second parameter
@@ -14,15 +19,81 @@ OUTPUT >>> https://laravel_testlab/another/route/foo/bar
 
 ___
 
-This will output:   (note that the third parameter will force the use of **https://**
-(3)	It is also possible to use **URL::secure(‘another/route’,array(‘foo’,’bar’))** in order to use the **HTTPS** protocol.
-(4)	We can use **URL::route(‘named-route’)** for when we want to access the full URL but supply a named route instead of the URI.
-(5)	It is also possible to use the **URL::action(‘ControllerName@actionName’)** to return the URL that will call this controller.  In the below example **http://lavarel_testlab/the/pattern** will be returned.
-**Route::get(‘the/pattern’,’ControllerName@actionName’)
+###URL::secure('another/URI',array('foo','bar'))
+
+
+```php
+OUTPUT >>> https://laravel_testlab/another/URI/foo/bar
+```
+
+___
+
+###URL::route('named.route')
+
+```php
+// app/routes.php
+
+Route::get('relevant/URI', array(
+        'as' => 'named.route',
+        function()
+        {
+            return 'hello';
+        })
+);
+
+Route::get('example',function(){
+    return URL::route('named.route');
+});
+
+```php
+OUTPUT >>> http://laravel_testlab/relevant/URI
+```
+
+* We are still able to access the full URL using a named route, but we only need to supply the alias of the route.
+
+___
+
+###URL::action('ControllerName@actionName')
+
+```php
+// app/routes.php
+
+Route::get(‘the/pattern’,’ControllerName@actionName’)
+
 Route::get(‘example’,function()
-{ return URL::action(‘ControllerName@actionName’)};);**
-(6)	URL::asset(‘relevant-URI) is used to return a URL that includes the full filename (note: true can be passed as a second parameter for HTTPS)
-**Route::get(‘example2’,function()
+{ 
+	return URL::action(‘ControllerName@actionName’);
+});
+```
+
+```php
+// OUTPUT >>> http://laravel_testlab/the/pattern
+```
+
+* URL::action('ControllerName@actionName') will return the URL that is required to call this controller method.
+* In the example, when the browser matches the URI pattern **'example'** it will return URL::action('ControllerName@actionName') 
+
+___
+
+###URL::asset('relevant/URI')
+
+```php
+Route::get(‘example’,function()
+{ 
+	return URL::asset(‘img/logo.png’); 
+});
+```
+
+```php
+// OUTPUT >>> http://laravel_testlab/img/logo.png
+```
+
+* **URL::asset(‘relevant/URI')** is used to return a URL that includes the full filename 
+* **true** can be passed as a second parameter for **https**
+
+___
+
+
 { return URL::asset(‘img/logo.png’); });**
 (7)	We can also use **URL::secureAsset(‘relevant-URI’)** in order to create a URL that uses HTTPS.
 (8)	We can use all of the above methods in our **blade.php** files without any problems
