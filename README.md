@@ -1,7 +1,11 @@
-insiite
-=======
+##Laravel insights
 
-This is a curated compilation of notes and sample scipts that grows and matures as we develop more and more with Laravel 4.  
+
+This is a curated compilation of notes and sample scipts that grows and matures as we develop more and more with Laravel 4.
+
+* full index
+* samples index
+* notes index
 
 
 ##How to Contribute
