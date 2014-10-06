@@ -37,10 +37,8 @@
             {{ Form::submit('Login') }}
         </div>
     <!--
-    NOTE 1: no need to add an extra token as this has already been automatically created by the Form
-    NOTE 2: the token helps to prevent CSRF
+    note: no need to add a token as this has already been automatically created by the Form
+    note: the token helps to prevent CSRF
     -->
     {{ Form::close() }}
 @stop
-
-<!-- >>> GOTO routes.php (create.post) -->
