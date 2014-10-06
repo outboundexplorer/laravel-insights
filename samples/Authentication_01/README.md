@@ -1,5 +1,5 @@
 **Sources**
-* Tutsplus tutorial:  [Laravel 4 Authentication](https://www.youtube.com/watch?v=-QjzzLVsUJY&list=PLfdtiltiRHWGf_XXdKn60f8h9jjn_9QDp&index=1)
+* based on Tutsplus tutorial:  [Laravel 4 Authentication](https://www.youtube.com/watch?v=-QjzzLVsUJY&list=PLfdtiltiRHWGf_XXdKn60f8h9jjn_9QDp&index=1)
 
 ___
 
