@@ -136,4 +136,33 @@ Route::get('secret/content', array(
 			})
 );
 
+###attaching conditionals to a route
 
+```php
+// app/routes.php
+
+Route::get('user/{username}', function($username)
+{
+    return "Welcome {$username} ";
+})->where('username','[A-Za-z]+');
+```
+
+* The route will only match on the condition that 'username' is lowercase or uppercase letter and with at least one letter.
+
+___
+
+###attaching multiple conditionals to a route
+
+```php
+// app/routes.php
+
+Route::get('user/{username}/{group}', function($username,$group)
+{
+    return "Welcome {$username} to {$group} group";
+})	->where('username','[A-Za-z]+')
+	->where('group','[A-Za-z]+');
+```
+
+* The route will only match on the condition that the 'username' and the 'group' are lowercase/uppercase and with at least one letter.
+
+---
