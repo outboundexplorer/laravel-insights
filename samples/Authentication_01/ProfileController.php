@@ -1,8 +1,5 @@
 <?php
-/**
- * Date: 26/09/2014
- * Time: 14:35
- */
+// app/controllers/ProfileController.php
 
 class ProfileController extends BaseController {
 
