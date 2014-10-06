@@ -24,7 +24,9 @@
   + [secure routes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#secure-routes)
   + [attaching conditionals to a route](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#attaching-conditionals-to-a-route)
   + [attaching multiple conditionals to a route](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#attaching-multiple-conditionals-to-a-route)
-  + 
+  + [Route::group()](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#routegroup)
+  + [using a route prefix with Route::group()](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#using-a-route-prefix-with-routegroup)
+  
 
 
 
