@@ -16,10 +16,14 @@
 * [ELoquent](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Eloquent.notes.md)
 * [Filter](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Filter.notes.md)
 * [Route](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md)
-  + [General notes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#general-notes)
-  + [Basic routing](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#basic-routing)
+  + [general notes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#general-notes)
+  + [basic routing](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#basic-routing)
+  + [dynamic placeholder](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#dynamic-placeholder)
+  + [named routing](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#named-routing)
+  + [Redirect::route()](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#redirectroutefaqs)
+  + [secure routes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Route.notes.md#secure-routes)
 
-* 
+
 
 
 ___
