@@ -72,7 +72,8 @@ Route::get(‘example’,function()
 ```
 
 * URL::action('ControllerName@actionName') will return the URL that is required to call this controller method.
-* In the example, when the browser matches the URI pattern **'example'** it will return URL::action('ControllerName@actionName') 
+* In the example, when the browser matches the URI pattern **'example'** it will return
+`// OUTPUT >>> http://laravel_testlab/the/pattern` 
 
 ___
 
@@ -89,20 +90,20 @@ Route::get(‘logo/image’,function()
 // OUTPUT >>> http://laravel_testlab/img/logo.png
 ```
 
-* **URL::asset(‘relevant/URI')** is used to return a URL that includes the full filename 
-* **true** can be passed as a second parameter for **https** (**URL::asset('relevant/file.ext')**)
+* `URL::asset(‘relevant/URI')` is used to return a URL that includes the full filename 
+* **true** can be passed as a second parameter for **https** (`URL::asset('relevant/file.ext')`)
 
 ___
 
 ###URL::secureAsset('relevant/file.ext')
 
-* We can also use **URL::secureAsset(‘relevant/file.ext’)** in order to create a URL that uses https.
+* We can also use `URL::secureAsset(‘relevant/file.ext’)` in order to create a URL that uses https.
 
 ###shortcuts
 
 * `url(‘relevant/URI’)` can be used in the same way the same way that we use `URL::to(‘relevant/URI’)`.
 * `secure_url(‘relevant/URI’)` can be used in the same way as `URL::secure(‘relevant/URI’)`
-* **route(‘named.route’)** can be used in the same way as **URL::route(‘named.route’)**
-* **action(‘ControllerName@actionName’)** can be used the same way as **URL::action(‘ControllerName@actionName’)**
-* **asset(‘relevant/URI’)** can be used the same way as **URL::asset(‘relevant/URI’)**
-* **Secure_asset(‘relevant/URI’)** can be used the same way as **URL::secureAsset(‘relevant/URI’)**
+* `route(‘named.route’)` can be used in the same way as `URL::route(‘named.route’)`
+* `action(‘ControllerName@actionName’)` can be used the same way as `URL::action(‘ControllerName@actionName’)`
+* `asset(‘relevant/URI’)` can be used the same way as `URL::asset(‘relevant/URI’)`
+* `Secure_asset(‘relevant/URI’)` can be used the same way as `URL::secureAsset(‘relevant/URI’)`
