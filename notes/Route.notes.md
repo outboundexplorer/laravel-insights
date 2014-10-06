@@ -1,4 +1,4 @@
-###General notes
+###general notes
 
 
 * We can define as many routes as we like in the **routes.php** file
@@ -7,7 +7,7 @@
 
 ___
 
-###Basic routing
+###basic routing
 
 ```php
 Route::get(‘my/page’,function()
@@ -28,7 +28,7 @@ ___
 
 
 
-###Dynamic placeholder
+###dynamic placeholder
 
 ```php
 Route::get(‘/books/{genre}’, function($genre)
@@ -56,9 +56,7 @@ Route::get(‘/books/{genre?}’, function($genre = null)
 });
 ```
 
-**Insights**
-
-1) We can make the dynamic parameter optional by adding a question mark **?**.  
+* We can make the dynamic parameter optional by adding a question mark **?**.  
 
 ____
 
@@ -167,3 +165,55 @@ Route::get('user/{username}/{group}', function($username,$group)
 * The route will only match on the condition that the 'username' and the 'group' are lowercase/uppercase and with at least one letter.
 
 ---
+
+###Route::group()
+
+```php
+Route::group(array('before' => 'auth'), function(){
+      
+        Route::get('/user/{username}', array(
+            'as' => 'user-profile.get',
+            'uses' => 'ProfileController@user'
+
+        ));
+
+        Route::get('/account/sign-out', array(
+            'as' => 'sign-out.get',
+            'uses' => 'AccountController@getSignOut'
+        ));
+
+    }
+);
+```
+* When we use `Route::group()` , all routes within the group will inherit the properties of the group.
+* In the example, both routes inside the group will be subject to pass through the 'auth' before filter. 
+
+___
+
+###using a route prefix with Route::group()
+```php
+Route::group(array('prefix' => 'songs'), function()
+{
+
+    // First Route
+    Route::get('/first', function() {
+        return 'Yellow';
+    });
+
+    // Second Route
+    Route::get('/second', function() {
+        return 'Magic';
+    });
+
+    // Third Route
+    Route::get('/third', function() {
+        return 'Talk';
+    });
+
+});
+```
+
+* when many routes share a common prefix, we can use a route prefix to avoid repetition
+* the three routes in the example are accessible from the URIs `/songs/first`,`/songs/second`,`songs/third`
+
+___
