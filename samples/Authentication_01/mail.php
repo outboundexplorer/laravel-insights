@@ -1,4 +1,5 @@
 <?php
+// app/config/mail.php
 
 return array(
 
