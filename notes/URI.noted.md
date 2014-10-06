@@ -12,6 +12,8 @@ OUTPUT >>> https://laravel_testlab/another/route/foo/bar
 * different parameters can be passed to the URI using the second parameter
 * the third parameter set to **true** will force the use of **https://**
 
+___
+
 This will output:   (note that the third parameter will force the use of **https://**
 (3)	It is also possible to use **URL::secure(‘another/route’,array(‘foo’,’bar’))** in order to use the **HTTPS** protocol.
 (4)	We can use **URL::route(‘named-route’)** for when we want to access the full URL but supply a named route instead of the URI.
