@@ -1,4 +1,5 @@
 <?php
+// app/models/Member.php
 
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
