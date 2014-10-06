@@ -1,4 +1,6 @@
 <?php
+// app/routes.php
+
 
 Route::get('/', array(
     'as' => 'home',
