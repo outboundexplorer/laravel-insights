@@ -20,4 +20,4 @@ or
 ___
 
 ####Further reading
-As with any compilation of knowledge, resources are borrowed, absorbed and put back together.  Here is a list of some of the great resources that have helped this compilation. 
+As with any compilation of knowledge, resources are borrowed, absorbed and put back together.  [Here](https://github.com/outboundexplorer/laravel-insights/blob/master/reources.md) is a list of some of the great resources that have helped this compilation. 
