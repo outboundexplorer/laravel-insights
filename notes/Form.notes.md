@@ -14,12 +14,14 @@ The above route will pass us to our form.blade.php file.
 ```html
 <!-- app/views/form.blade.php -->
 
-<form action="{{ url('relevant/route') }} method="POST">
+<form action="{{ url('relevant/route') }} method="POST" >
 
 </form>
 ```
 
 which is the same as 
+
+
 
 ```html
 <!-- app/views/form.blade.php -->
