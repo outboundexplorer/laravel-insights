@@ -1,4 +1,4 @@
-##Laravel insights
+##Laravel insights OK
 
 
 This is a curated compilation of notes and sample scipts that grows and matures as we develop more and more with Laravel 4.
