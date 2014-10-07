@@ -142,3 +142,50 @@ and if we pass the following `$_GET` data to the URL: `http://laravel_testlab/te
 
 ___
 
+###Input::only()
+
+```php
+// app/routes.php
+
+Route::get('test',function()
+{
+    $result = Input::only(array('one','two'));
+    var_dump($result);
+});
+```
+
+When we enter the URL `http://laravel_testlab/test?one=apple&two=banana&three=orange`
+
+```php
+// OUTPUT >>> array(2) { ["one"]=> string(5) "apple" ["two"]=> string(6) "banana" }
+```
+
+* We have now received a subset of the request data.
+* The array() is optional, we could have just used `Input::only('one','two')`
+
+___
+
+###Input::except()
+
+```php
+// app/routes.php
+
+Route::get('test6',function()
+{
+    $result = Input::except(array('one','two'));
+    var_dump($result);
+});
+```
+
+When we enter the URL `http://laravel_testlab/test?one=apple&two=banana&three=orange`
+
+```php
+// OUTPUT >>> array(1) { ["three"]=> string(6) "orange" }
+```
+
+* We have now received a subset if the request data.
+* The array() is optional, we could have just used `Input::except('one','two')`
+
+___
+
+
