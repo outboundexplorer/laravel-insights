@@ -1,4 +1,4 @@
-###trying out Input::all() with GET data
+###trying out **Input::all()** with GET data
 
 ```php
 // app/routes.php
@@ -21,7 +21,7 @@ We then provide a URL with some `GET` data as: `http://laravel_testlab/request?o
 
 ___
 
-###trying out 'Input::all()' with POST data
+###trying out *Input::all()* with POST data
 
 ```html
 // app/views/test-form.blade.php
