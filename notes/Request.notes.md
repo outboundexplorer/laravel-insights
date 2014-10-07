@@ -189,3 +189,58 @@ When we enter the URL `http://laravel_testlab/test?one=apple&two=banana&three=or
 ___
 
 
+###using Input::flash() to keep input data for another request cycle
+
+```php
+// app/routes.php
+
+Route::get('test',function()
+{
+    Input::flash();
+    return Redirect::to('new/request');
+});
+
+Route::get('/new/request', function()
+{
+    var_dump(Input::old());
+});
+```
+
+When we enter the URL `http://laravel_testlab/test?one=apple&two=orange`
+
+```php
+// OUTPUT >>> array(2) { ["one"]=> string(5) "apple" ["two"]=> string(6) "orange" }
+```
+
+* Generally after a redirect the request data from the original URL is lost.
+* When we use the `Input::flash()` method, we tell the browser that we want to hold onto the data for another request cycle. (note: we must implement `Input::flash()` before the redirect takes place)
+* After the redirect, the request data from the previous cycle is now accessed via `Input::old()` 
+
+___
+
+###Input::flashOnly() & Input::flashExcept
+
+```php
+Input::flashOnly(array('one', 'two'));
+Input::flashOnly('one','two');
+
+Input::flashExcept(array('three'));
+Input::flashExcept('three');
+```
+
+* These methods operate in exactly the same way as the `Input::flash()` method, but instead of flashing all of the request data to the following request cycle only a subset of the request data is sent.
+* `Input::flashOnly()` will only send the request data that is specified. 
+* `Input::flashExcept()` will send all the request data except the request data that is specified. 
+
+___
+
+###accessing certain elements of Input::old()
+
+```php
+Input::old(array('one','two'));
+Input::old('one','two');
+```
+
+* We can use `Input::old()` in either of the above ways to access only a subset of the request data from the previous cycle.
+
+___ 
