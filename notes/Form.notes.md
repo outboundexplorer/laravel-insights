@@ -12,7 +12,7 @@ Route::get('form',function()
 The above route will pass us to our form.blade.php file.
 
 ```html
-// app/views/form.blade.php
+<!-- app/views/form.blade.php -->
 
 <form action="{{ url('relevant/route') }} method="POST">
 
@@ -22,7 +22,7 @@ The above route will pass us to our form.blade.php file.
 which is the same as 
 
 ```html
-// app/views/form.blade.php
+<!-- app/views/form.blade.php -->
 
 {{ Form::open(array('url' => 'relevant/route') }}
 
