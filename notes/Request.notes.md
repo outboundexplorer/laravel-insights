@@ -86,7 +86,7 @@ We then provide a URL with some `GET` data as: `http://laravel_testlab/test?one=
 
 ___
 
-###using a default with *Input:;get()*
+###using a default with *Input::get()*
 
 ```php
 // app/routes.php
@@ -218,7 +218,7 @@ When we enter the URL `http://laravel_testlab/test?one=apple&two=orange`
 
 ___
 
-###Input::flashOnly() & Input::flashExcept
+###*Input::flashOnly()* & *Input::flashExcept*
 
 ```php
 Input::flashOnly(array('one', 'two'));
@@ -245,7 +245,7 @@ Input::old('one','two');
 
 ___ 
 
-###`withInput()`
+###withInput()
 
 ```php
 // app/routes.php
@@ -271,7 +271,7 @@ Route::get('test',function()
 
 ___
 
-###working with file data and getFileName()
+###working with file data and *getFileName()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -313,7 +313,7 @@ Route::post('handle-form', function()
 
 ___
 
-###working with file data and getClientOriginalName()
+###working with file data and *getClientOriginalName()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -353,7 +353,7 @@ Route::post('handle-form', function()
 ___
 
 
-###working with file data and getClientSize()
+###working with file data and *getClientSize()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -394,7 +394,7 @@ Route::post('handle-form', function()
 ___
 
 
-###working with file data and `getMimeType()`
+###working with file data and *getMimeType()*
 
 ```html
 <-- views/new-test-form.blade.php -->
