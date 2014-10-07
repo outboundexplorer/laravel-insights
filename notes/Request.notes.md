@@ -244,3 +244,29 @@ Input::old('one','two');
 * We can use `Input::old()` in either of the above ways to access only a subset of the request data from the previous cycle.
 
 ___ 
+
+###withInput()
+
+```php
+// app/routes.php
+
+Route::get('test',function()
+{
+    return Redirect::to('new/request')->withInput();
+});
+```
+
+is exactly the same as
+
+```php
+Route::get('test',function()
+{
+    Input::flash();
+    return Redirect::to('new/request');
+});
+```
+
+* `withInput()` is the same as `withInput(Input::all()`
+* In order to only flash a subset of the request data we can now use `withInput(Input::only())` or `withInput(Input::except())`
+
+___
