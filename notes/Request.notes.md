@@ -1,4 +1,4 @@
-###trying out   Input::all()   with GET data
+###trying out `Input::all()` with GET data
 
 ```php
 // app/routes.php
