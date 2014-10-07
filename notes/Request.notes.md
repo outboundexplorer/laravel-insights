@@ -1,4 +1,4 @@
-###trying out `Input::all()` with GET data
+###trying out *Input::all()* with GET data
 
 ```php
 // app/routes.php
@@ -63,7 +63,7 @@ Route::post('request', function()
 
 ___
 
-###*Input::get()*
+###Input::get()
 
 ```php
 // app/routes.php
@@ -86,7 +86,7 @@ We then provide a URL with some `GET` data as: `http://laravel_testlab/test?one=
 
 ___
 
-###using a default with 'Input:;get()'
+###using a default with *Input:;get()*
 
 ```php
 // app/routes.php
@@ -142,7 +142,7 @@ and if we pass the following `$_GET` data to the URL: `http://laravel_testlab/te
 
 ___
 
-###'Input::only()'
+###Input::only()
 
 ```php
 // app/routes.php
@@ -165,7 +165,7 @@ When we enter the URL `http://laravel_testlab/test?one=apple&two=banana&three=or
 
 ___
 
-###`Input::except()`
+###Input::except()
 
 ```php
 // app/routes.php
@@ -189,7 +189,7 @@ When we enter the URL `http://laravel_testlab/test?one=apple&two=banana&three=or
 ___
 
 
-###using `Input::flash()` to keep input data for another request cycle
+###using *Input::flash()* to keep input data for another request cycle
 
 ```php
 // app/routes.php
@@ -218,7 +218,7 @@ When we enter the URL `http://laravel_testlab/test?one=apple&two=orange`
 
 ___
 
-###`Input::flashOnly()` & `Input::flashExcept`
+###Input::flashOnly() & Input::flashExcept
 
 ```php
 Input::flashOnly(array('one', 'two'));
@@ -234,7 +234,7 @@ Input::flashExcept('three');
 
 ___
 
-###accessing certain elements of `Input::old()`
+###accessing certain elements of *Input::old()*
 
 ```php
 Input::old(array('one','two'));
