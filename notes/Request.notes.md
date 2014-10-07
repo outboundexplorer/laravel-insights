@@ -165,7 +165,7 @@ When we enter the URL `http://laravel_testlab/test?one=apple&two=banana&three=or
 
 ___
 
-###Input::except()
+###`Input::except()`
 
 ```php
 // app/routes.php
@@ -189,7 +189,7 @@ When we enter the URL `http://laravel_testlab/test?one=apple&two=banana&three=or
 ___
 
 
-###using Input::flash() to keep input data for another request cycle
+###using `Input::flash()` to keep input data for another request cycle
 
 ```php
 // app/routes.php
@@ -218,7 +218,7 @@ When we enter the URL `http://laravel_testlab/test?one=apple&two=orange`
 
 ___
 
-###Input::flashOnly() & Input::flashExcept
+###`Input::flashOnly()` & `Input::flashExcept`
 
 ```php
 Input::flashOnly(array('one', 'two'));
@@ -234,7 +234,7 @@ Input::flashExcept('three');
 
 ___
 
-###accessing certain elements of Input::old()
+###accessing certain elements of `Input::old()`
 
 ```php
 Input::old(array('one','two'));
@@ -245,7 +245,7 @@ Input::old('one','two');
 
 ___ 
 
-###withInput()
+###`withInput()`
 
 ```php
 // app/routes.php
