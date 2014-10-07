@@ -271,7 +271,7 @@ Route::get('test',function()
 
 ___
 
-###working with file data and *getFileName()*
+###working with uploaded files and *getFileName()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -313,7 +313,7 @@ Route::post('handle-form', function()
 * `getFileName()` allows us to access the temporary fileName property of the 'my_file' object.
 ___
 
-###working with file data and *getClientOriginalName()*
+###working with uploaded files and *getClientOriginalName()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -353,7 +353,7 @@ Route::post('handle-form', function()
 ___
 
 
-###working with file data and *getClientSize()*
+###working with uploaded files and *getClientSize()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -394,7 +394,7 @@ Route::post('handle-form', function()
 ___
 
 
-###working with file data and *getMimeType()*
+###working with uploaded files *getMimeType()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -435,7 +435,7 @@ Route::post('handle-form', function()
 ___
 
 
-###working with file data and *guessExtension()*
+###working with uploaded files and *guessExtension()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -476,7 +476,7 @@ Route::post('handle-form', function()
 ___
 
 
-###working with file data and *getRealPath()*
+###working with uploaded files and *getRealPath()*
 
 ```html
 <-- views/new-test-form.blade.php -->
@@ -570,4 +570,27 @@ Route::post('handle-form', function()
 ```
 ___
 
+###create and retrieving a cookie with *Cookie::make()*
 
+```php
+// app/routes.php
+
+Route::get('cookietest', function()
+{
+    $cookie = Cookie::make('color','pink', 60);
+    return Response::make('Cookie Set')->withCookie($cookie);
+});
+
+Route::get('/settings', function()
+{
+    $cookie = Cookie::get('color');
+    var_dump($cookie);
+});
+```
+
+* We create a cookie using the `Cookie::make($name, $value)` method.  If we do not specify a third parameter, the cookie will expire at the end of the user's session.
+* Use `$cookie = Cookie::make($name, $value, 60);` to create a cookie that won't expire for 60 minutes.
+
+
+```php
+// OUTPUT >>> 
