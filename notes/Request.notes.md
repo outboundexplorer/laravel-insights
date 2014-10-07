@@ -270,3 +270,168 @@ Route::get('test',function()
 * In order to only flash a subset of the request data we can now use `withInput(Input::only())` or `withInput(Input::except())`
 
 ___
+
+###working with file data and getFileName()
+
+```html
+<-- views/new-test-form.blade.php -->
+
+<!doctype html>
+    <head>
+    </head>
+    <body>
+        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::file('my_file') }}
+        {{ Form::submit() }}
+        {{ Form::close() }}
+    </body>
+</html>
+```
+
+```php
+// app/routes.php
+
+Route::get('/test', function()
+{
+    return View::make('new-test-form');
+});
+
+Route::post('handle-form', function()
+{
+    return Input::file('my_file')->getFilename();
+});
+```
+
+```php
+// OUTPUT >>> php86E2.tmp
+```
+
+* A `GET` request with the URI `/test` will take us to the `new-test-form.blade.php` form.
+* Once we submit a file, a `POST` request is sent to the `handle-form` URI.
+* `Input::file('my_file') represents 'my_file' as an object
+* `getFileName()` allows us to access the fileName property of the 'my_file' object.
+
+___
+
+###working with file data and getClientOriginalName()
+
+```html
+<-- views/new-test-form.blade.php -->
+
+<!doctype html>
+    <head>
+    </head>
+    <body>
+        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::file('my_file') }}
+        {{ Form::submit() }}
+        {{ Form::close() }}
+    </body>
+</html>
+```
+
+```php
+// app/routes.php
+
+Route::get('/test', function()
+{
+    return View::make('new-test-form');
+});
+
+Route::post('handle-form', function()
+{
+    return Input::file('my_file')->getClientOriginalName();
+});
+```
+
+```php
+// OUTPUT >>> my_image.jpg
+```
+
+* `getClientOriginalName()` allows us to access the original fileName property of the 'my_file' object.
+
+___
+
+
+###working with file data and getClientSize()
+
+```html
+<-- views/new-test-form.blade.php -->
+
+<!doctype html>
+    <head>
+    </head>
+    <body>
+        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::file('my_file') }}
+        {{ Form::submit() }}
+        {{ Form::close() }}
+    </body>
+</html>
+```
+
+```php
+// app/routes.php
+
+Route::get('/test', function()
+{
+    return View::make('new-test-form');
+});
+
+Route::post('handle-form', function()
+{
+    return Input::file('my_file')->getClientSize();
+});
+```
+
+```php
+// OUTPUT >>> 3530004
+```
+
+* `getClientSize()` allows us to access the file size property of the 'my_file' object.
+* File size is in bytes.
+
+___
+
+
+###working with file data and `getMimeType()`
+
+```html
+<-- views/new-test-form.blade.php -->
+
+<!doctype html>
+    <head>
+    </head>
+    <body>
+        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::file('my_file') }}
+        {{ Form::submit() }}
+        {{ Form::close() }}
+    </body>
+</html>
+```
+
+```php
+// app/routes.php
+
+Route::get('/test', function()
+{
+    return View::make('new-test-form');
+});
+
+Route::post('handle-form', function()
+{
+    return Input::file('my_file')->getClientSize();
+});
+```
+
+```php
+// OUTPUT >>> 3530004
+```
+
+* `getClientSize()` allows us to access the file size property of the 'my_file' object.
+* File size is in bytes.
+
+___
+
+
