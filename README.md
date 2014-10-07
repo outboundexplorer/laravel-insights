@@ -1,7 +1,7 @@
 ##Laravel insights 
 
 
-This is a curated compilation of notes and sample scipts that grows and matures as we develop more and more with Laravel 4.
+This is a curated compilation of notes and solutions.  This is somewhere that we can put our minds together and create a wonderful resource.  By sharing our ideas and insights and explaining them in ways that are easy for others to understand, we are able to expand our own understanding and build a community resource in the process.
 
 * [notes index](https://github.com/outboundexplorer/laravel-insights/blob/master/notes_index.md)
 * [solutions index](https://github.com/outboundexplorer/laravel-insights/tree/master/solutions)
