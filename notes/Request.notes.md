@@ -589,8 +589,107 @@ Route::get('/settings', function()
 ```
 
 * We create a cookie using the `Cookie::make($name, $value)` method.  If we do not specify a third parameter, the cookie will expire at the end of the user's session.
-* Use `$cookie = Cookie::make($name, $value, 60);` to create a cookie that won't expire for 60 minutes.
+* Use `$cookie = Cookie::make($name, $value, 60);` to create a cookie that will expire in 60 minutes.
+* The `$cookie` is only created once we attach it to the returned response from the **Closure**.  
+* In the example, we use `Response::make('Cookie Set')` to return a simple string to the screen.
+* We can method chain `withCookie($cookie)` to the response in order to create the cookie.
 
+If we direct the browser to `http://laravel_testlab/cookietest` we will see the following output:
 
 ```php
-// OUTPUT >>> 
+// OUTPUT >>> Cookie Set
+```
+
+If we now go to `http://laravel_testlab/settings` we will see the following output:
+
+```php
+// OUTPUT >>> string(4) "pink" 
+```
+
+* We can use the `Cookie::get('cookie_name')` method to access the properties of the cookie.
+
+___
+
+###setting a default value using *Cookie::get('cookie_name','default_value')*
+
+```php
+// app/routes.php
+
+Route::get('test', function()
+{
+    $cookie = Cookie::make('color','pink', 60);
+    return Response::make('Cookie Set')->withCookie($cookie);
+});
+
+Route::get('/settings', function()
+{
+    $cookie = Cookie::get('size','large');
+    var_dump($cookie);
+});
+```
+
+If we now direct the browser to `http://laravel_testlab/settings` we will see the following output to the screen:
+
+```php
+// OUTPUT >>> string(5) "large"
+```
+
+___
+
+###
+
+```php
+// app/routes.php
+
+Route::get('test', function()
+{
+    $cookie = Cookie::make('color','pink', 60);
+    return Response::make('Cookie Set')->withCookie($cookie);
+});
+
+Route::get('settings', function()
+{
+    if (Cookie::has('color'))
+    {
+        return var_dump(Cookie::get('color'));
+    }
+    return 'The cookie you needed is not there!';
+});
+```
+
+When we direct the browser to `http://laravel_testlab/settings` we will see the following output to the screen:
+
+```php
+// OUTPUT >>> string(4) "pink"
+```
+
+* The `Cookie::has('cookie_name)` method has checked to see whether the relevant cookie is within the response and returns a boolean value.
+
+___
+
+###Cookie::forever()
+
+```php
+Cookie::forever('cookie_name')
+```
+
+* The above will create a cookie that will never expire.
+
+```php
+Cookie::forever('cookie_name','default_value')
+```
+
+* We can also set a default value
+
+___
+
+###Cookie::forget()
+
+```php
+Cookie::forget('cookie_name')
+```
+
+* We can force a cookie to expire using the `Cookie::forget()` method.
+
+___
+
