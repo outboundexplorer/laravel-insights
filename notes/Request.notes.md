@@ -1,4 +1,4 @@
-###trying out **Input::all()** with GET data
+###trying out   Input::all()   with GET data
 
 ```php
 // app/routes.php
@@ -63,7 +63,7 @@ Route::post('request', function()
 
 ___
 
-###Input::get()
+###*Input::get()*
 
 ```php
 // app/routes.php
