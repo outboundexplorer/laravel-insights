@@ -21,7 +21,7 @@ We then provide a URL with some `GET` data as: `http://laravel_testlab/request?o
 
 ___
 
-###trying out Input::all() with POST data
+###trying out 'Input::all()' with POST data
 
 ```html
 // app/views/test-form.blade.php
@@ -86,7 +86,7 @@ We then provide a URL with some `GET` data as: `http://laravel_testlab/test?one=
 
 ___
 
-###using a default with Input:;get()
+###using a default with 'Input:;get()'
 
 ```php
 // app/routes.php
@@ -142,7 +142,7 @@ and if we pass the following `$_GET` data to the URL: `http://laravel_testlab/te
 
 ___
 
-###Input::only()
+###'Input::only()'
 
 ```php
 // app/routes.php
