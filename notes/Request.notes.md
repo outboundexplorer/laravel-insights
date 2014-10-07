@@ -309,8 +309,8 @@ Route::post('handle-form', function()
 * A `GET` request with the URI `/test` will take us to the `new-test-form.blade.php` form.
 * Once we submit a file, a `POST` request is sent to the `handle-form` URI.
 * `Input::file('my_file') represents 'my_file' as an object
-* `getFileName()` allows us to access the fileName property of the 'my_file' object.
-
+* The upload currently resides in a temporary location which only exists as long as the current request.
+* `getFileName()` allows us to access the temporary fileName property of the 'my_file' object.
 ___
 
 ###working with file data and *getClientOriginalName()*
@@ -421,17 +421,153 @@ Route::get('/test', function()
 
 Route::post('handle-form', function()
 {
-    return Input::file('my_file')->getClientSize();
+    return Input::file('my_file')->getMimeType();
 });
 ```
 
 ```php
-// OUTPUT >>> 3530004
+// OUTPUT >>> image/jpeg
 ```
 
-* `getClientSize()` allows us to access the file size property of the 'my_file' object.
-* File size is in bytes.
+* `getMimeType()` allows us to access the mime type property of the 'my_file' object.
 
+
+___
+
+
+###working with file data and *guessExtension()*
+
+```html
+<-- views/new-test-form.blade.php -->
+
+<!doctype html>
+    <head>
+    </head>
+    <body>
+        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::file('my_file') }}
+        {{ Form::submit() }}
+        {{ Form::close() }}
+    </body>
+</html>
+```
+
+```php
+// app/routes.php
+
+Route::get('/test', function()
+{
+    return View::make('new-test-form');
+});
+
+Route::post('handle-form', function()
+{
+    return Input::file('my_file')->guessExtension();
+});
+```
+
+```php
+// OUTPUT >>> jpeg
+```
+
+* `guessExtension()` allows us to access the mime type property of the 'my_file' object.
+
+
+___
+
+
+###working with file data and *getRealPath()*
+
+```html
+<-- views/new-test-form.blade.php -->
+
+<!doctype html>
+    <head>
+    </head>
+    <body>
+        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::file('my_file') }}
+        {{ Form::submit() }}
+        {{ Form::close() }}
+    </body>
+</html>
+```
+
+```php
+// app/routes.php
+
+Route::get('/test', function()
+{
+    return View::make('new-test-form');
+});
+
+Route::post('handle-form', function()
+{
+    return Input::file('my_file')->getRealPath();
+});
+```
+
+```php
+// OUTPUT >>> C:\Windows\Temp\phpA7FA.tmp
+```
+
+* `getRealPath()` allows us to get the current location of the uploaded file.
+* Once we know where the temporary file is located we can use copy() or rename() to save the file to another more permanant location.
+
+___
+
+###moving an uploaded file with *move()*
+
+
+```html
+<-- views/new-test-form.blade.php -->
+
+<!doctype html>
+    <head>
+    </head>
+    <body>
+        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::file('my_file') }}
+        {{ Form::submit() }}
+        {{ Form::close() }}
+    </body>
+</html>
+```
+
+```php
+// app/routes.php
+
+Route::get('/test', function()
+{
+    return View::make('new-test-form');
+});
+
+Route::post('handle-form', function()
+{
+	$name = Input::file('my_file')->getClientOriginalName();
+	Input::file('my_file')->move('storage/directory', $name);
+	return 'File was successfully moved!';
+});
+```
+
+```php
+// OUTPUT >>> File was successfully moved!'
+```
+
+* When using `move()` to move an uploaded file, we select a destination as the first parameter (note: `storage/directory` will create a new directory within the `public` directory.  If we try to use `/storage/directory`, we are now trying to access a folder outside the web root and correct write permissions are needed.)
+* By using `getClientOriginalName()` and first assigning this to the variable `$name` we are able to use this as an optional second parameter for providing the file with a filename (otherwise the tempororary filename will be used)
+
+Alternatively we could have just placed the chained method that access the `my_file` object directly into the `move()` method.
+
+```php
+// app/routes.php
+
+Route::post('handle-form', function()
+{
+	Input::file('my_file')->move('storage/directory', Input::file('my_file')->getClientOriginalName();
+	return 'File was successfully moved!';
+});
+```
 ___
 
 
