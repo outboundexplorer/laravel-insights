@@ -14,8 +14,12 @@ The above route will pass us to our form.blade.php file.
 ```html
 <!-- app/views/form.blade.php -->
 
-<form action="{{ url('relevant/route') }} method="POST" >
+{{ Form::open(array('url' => 'relevant/route') }}
 
+{{ Form::close() }}
+<!-- app/views/form.blade.php -->
+
+<form action="{{ url('relevant/route') }} method="POST" >
 </form>
 ```
 
@@ -24,11 +28,7 @@ which is the same as
 
 
 ```html
-<!-- app/views/form.blade.php -->
 
-{{ Form::open(array('url' => 'relevant/route') }}
-
-{{ Form::close() }}
 ```
 
 * When using `Form::open()` and `Form::close()` the method is set to `POST` as default
