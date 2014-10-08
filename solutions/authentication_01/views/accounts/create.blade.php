@@ -5,7 +5,7 @@
     {{ Form::open(array('route' => 'create.post')) }} <!-- This could also be 'url' => 'account/create' -->
 
         <div>
-           {{ Form::text('email',null,array('placeholder' => 'Email', 'value' => Input::old('email') )) }}
+           {{ Form::text('email',Input::old('email'),array('placeholder' => 'Email'  )) }}
            @if($errors->has('email'))
                 {{ $errors->first('email') }}
            @endif
@@ -13,7 +13,7 @@
         </div>
 
         <div>
-            {{ Form::text('username',null,array('placeholder' => 'Username', 'value' => Input::old('username') )) }}
+            {{ Form::text('username',Input::old('username'),array('placeholder' => 'Username'  )) }}
               @if($errors->has('username'))
                  {{ $errors->first('username') }}
               @endif
