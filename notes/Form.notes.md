@@ -391,7 +391,7 @@ ____
 <!-- app/views/myform.blade.php -->
 
 {{ Form::open(array('url' => 'my/form/route')) }}
-    {{  Form::label('language','Nationality') }}
+    {{  Form::label('language','Language') }}
     {{  Form::select('language' ,array(
             'english' => 'English',
             'spanish' => 'Spanish',
@@ -409,7 +409,8 @@ ____
     <select id="language" name="language">
 		<option value="english">English</option>
 		<option value="spanish">Spanish</option>
-		<option value="chinese" selected="selected">Chinese</option></select>
+		<option value="chinese" selected="selected">Chinese</option>
+	</select>
 </form>
 ```
 
@@ -419,3 +420,46 @@ ____
 
 ____
 
+###Form::select() organized by category
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::label('food','Favourite food') }}
+    {{  Form::select('food' ,array(
+            'Asian' => array(
+                'chinese' => 'Chinese',
+                'japanese' => 'Japanese',
+                'korean' => 'Korean'
+            ),
+             'European' => array(
+                'french' => 'French',
+                'spanish'=> 'Spanish'
+                )
+        ))  }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="food">Favourite food</label>
+    <select id="food" name="food">
+		<optgroup label="Asian">
+			<option value="chinese">Chinese</option>
+			<option value="japanese">Japanese</option>
+			<option value="korean">Korean</option>
+		</optgroup>
+		<optgroup label="European">
+			<option value="french">French</option>
+			<option value="spanish">Spanish</option>
+		</optgroup>
+	</select>
+</form>
+
+* When creating an `<optgroup>` a name is not given in the array, instead we only supply the value.
+
+___
