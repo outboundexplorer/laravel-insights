@@ -251,4 +251,23 @@ If we now take a look at the Page Source we will now see the following.
 
 If we want to add further attributes, we can use an array() as an optional third parameter
 
+```html
+<!-- app/views/myform.blade.php -->
 
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{ Form::label('username', 'Username') }}
+    {{ Form::text('username','default value', array('class' => 'input-field')) }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="username">Username</label>
+    <input class="input-field" name="username" type="text" value="default value" id="username">
+</form>
+```
+
+* If we need to add additional attributes to the third parameter array(), but do not need a default value for the `value` attribute, we can set it to null `Form::text('username',null,array('class' => 'form-field'))` 
