@@ -261,7 +261,7 @@ Route::post('/my/form/route',...));
 {{ Form::open(array('url' => 'my/form/route')) }}
     {{ Form::label('username', 'Username') }}
 	
-    {{ Form::text('username','default value', array('class' => 'input-field')) }}
+    {{ Form::text('username','default value', <b>array('class' => 'input-field'))</b> }}
 	
 {{ Form::close() }}
 ```
@@ -273,8 +273,7 @@ Route::post('/my/form/route',...));
 	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
     <label for="username">Username</label>
 	
-    <input class="input-field" name="username" type="text" value="default value" id="username">
-	
+	<input class="input-field" name="username" type="text" value="default value" id="username">
 </form>
 ```
 
@@ -283,3 +282,30 @@ Route::post('/my/form/route',...));
 ```html
 Form::text('username',null,array('class' => 'form-field'))
 ```
+
+___
+
+###Form::textarea()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{ Form::label('username', 'Comments') }}
+    {{ Form::textarea('comments',null,array('placeholder' => 'Please enter your comments here','class' => 'form-field')) }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="username">Comments</label>
+    <textarea placeholder="Please enter your comments here" class="form-field" name="comments" cols="50" rows="10"></textarea>
+</form>
+
+
+* If a value is entered as the second parameter, this will override any attributes placed in the third parameter array().  (i.e. it is pointless to have a `'value'` or `'placeholder'` attribute if the second parameter is not `null`.
+
+___
