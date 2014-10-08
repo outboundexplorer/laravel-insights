@@ -96,4 +96,99 @@ ___
 
 ___
 
+###defining a named route in *Form::open()*
+
+```php
+// app/routes.php
+
+Route::get('new/form/test', function()
+    {
+        return View::make('myform');
+    }
+);
+
+Route::post('new/form/test', array(
+    'as' => 'my_named_route',
+    'uses' => 'FormController@save'
+));
+```
+
+```html
+<!-- views/myform.blade.php -->
+
+{{ Form::open(array('route' => 'my_named_route')) }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source of myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/new/test" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+</form>
+```
+
+* By using `'route' => 'my_named_route'` from the Page Source we can see that the form action is still the URL identified in `routes.php` by the URI `'new/form/test'`.
+
+___
+### defining an action in *Form::open()*
+
+```php
+// app/routes.php
+
+Route::get('/my/new/test', function()
+    {
+        return View::make('myform');
+    }
+);
+
+
+Route::post('/my/new/test', array(
+    'as' => 'my_named_route',
+    'uses' => 'FormController@action'
+));
+```
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('action' => 'my_named_route')) }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source of myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/new/test" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+</form>
+```
+
+* From the Page Source we can see that the form action is still the URL identified in `routes.php` by the URI `'new/form/test'`.
+
+___
+
+###Form::label()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('action' => 'FormController@action')) }}
+    {{ Form::label('username', 'Username') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/new/test" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="username">Username</label>
+</form> 
+```
+
+* A label has now been created that will be used to match an `<input>` tag called `"username"`
+* Note that without the relevant `<input>` tag, nothing will be output to the screen.
+
+___
 
