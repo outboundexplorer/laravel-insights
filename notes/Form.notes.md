@@ -464,3 +464,30 @@ ____
 * When creating an `<optgroup>` a name is not given in the array, instead we only supply the value.
 
 ___
+
+###Form::email()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::label('email','Email') }}
+    {{  Form::email('email') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="email">Email</label>
+    <input name="email" type="email" id="email">
+</form>
+```
+
+* It is possible to pass an optional default value `Form::email('email','andyroddam@gmail.com')`
+* We can also pass an array() of attributes into the third parameter.
+
+___
+
