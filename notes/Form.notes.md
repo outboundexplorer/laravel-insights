@@ -608,3 +608,27 @@ ___
 * We can include additional parameters as an array() in the optional third parameter.  
 
 ___ 
+
+###Form::reset()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::reset('Refresh data') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <input type="reset" value="Refresh data">
+</form>
+```
+
+___
+
+###Form::macro()
+
