@@ -3,7 +3,7 @@
      @section('content')
          {{ Form::open(array('route'=>'sign-in.post')) }}
          <div>
-             {{ Form::text('email',null, array('placeholder' => 'Email', 'value' => Input::old('email') )) }}
+             {{ Form::text('email',Input::old('email'), array('placeholder' => 'Email'  )) }}
              @if($errors->has('email'))
                  {{ $errors->first('email') }}
              @endif
