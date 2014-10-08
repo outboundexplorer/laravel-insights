@@ -351,7 +351,7 @@ ___
 * The second parameter is used to define the value when the box is checked and is an optional attribute. (The default value for a checked box is `'1'`
 * The third parameter is also an optional attribute and can be used to determine whether the checkbox is initially checked (`true`) or unchecked (`false`). (If this parameter is not included, the checkbox is unchecked as default).
 * If further attributes are required, these can be set using an array() for the 4th parameter.
-___
+____
 
 ###Form::radio()
 
@@ -381,7 +381,7 @@ ___
 * The second parameter is the value that is given to each radio button should it be checked.
 * We can include an optional third parameter to check a radio box as default. (only one radio box can be checked at any one time)
 
-___
+____
 
 ###Form::select()
 
@@ -415,4 +415,5 @@ ___
 * We can include an optional third parameter to select an option as default. (only one select option can be chosed at one time).
 * It is possible to add additional attributes with a fourth argument.
 
-___
+____
+
