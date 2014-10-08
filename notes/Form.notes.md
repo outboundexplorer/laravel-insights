@@ -174,7 +174,9 @@ ___
 <!-- app/views/myform.blade.php -->
 
 {{ Form::open(array('action' => 'FormController@action')) }}
+
     {{ Form::label('username', 'Username') }}
+	
 {{ Form::close() }}
 ```
 
@@ -210,7 +212,9 @@ Route::post('/my/form/route',...));
 
 {{ Form::open(array('url' => 'my/form/route')) }}
     {{ Form::label('username', 'Username') }}
+	
     {{ Form::text('username') }}
+	
 {{ Form::close() }}
 ```
 
@@ -232,7 +236,9 @@ Route::post('/my/form/route',...));
 
 {{ Form::open(array('url' => 'my/form/route')) }}
     {{ Form::label('username', 'Username') }}
+	
     {{ Form::text('username','default value') }}
+	
 {{ Form::close() }}
 ```
 
@@ -254,7 +260,9 @@ Route::post('/my/form/route',...));
 
 {{ Form::open(array('url' => 'my/form/route')) }}
     {{ Form::label('username', 'Username') }}
+	
     {{ Form::text('username','default value', array('class' => 'input-field')) }}
+	
 {{ Form::close() }}
 ```
 
@@ -264,8 +272,14 @@ Route::post('/my/form/route',...));
 <form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
 	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
     <label for="username">Username</label>
+	
     <input class="input-field" name="username" type="text" value="default value" id="username">
+	
 </form>
 ```
 
-* If we need to add additional attributes to the third parameter array(), but do not need a default value for the `value` attribute, we can set it to null `Form::text('username',null,array('class' => 'form-field'))` 
+* If we need to add additional attributes to the third parameter array(), but do not need a default value for the `value` attribute, we can set it to null 
+
+```html
+Form::text('username',null,array('class' => 'form-field'))
+```
