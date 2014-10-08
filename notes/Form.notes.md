@@ -36,6 +36,7 @@ which is the same as
 
 ```html
 <!-- Page Source when using Form::open() & Form::close() -->
+
 <form method="POST" action="http://laravel_testlab/relevant/route" accept-charset="UTF-8">
 	<input name="_token" type="hidden" value="AVmEdtqpm17kCxWighHOa1993moVaX5Gott8hZrP">
 </form>
