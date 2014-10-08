@@ -214,7 +214,6 @@ Route::post('/my/form/route',...));
 {{ Form::close() }}
 ```
 
-If we take a look at the Page Source, we will see the following:
 
 ```html
 <!-- Page Source for myform.blade.php -->
