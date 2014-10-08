@@ -280,7 +280,7 @@ ___
     <head>
     </head>
     <body>
-        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::open(array('url' => 'handle-form','files' => 'true')) }}
         {{ Form::file('my_file') }}
         {{ Form::submit() }}
         {{ Form::close() }}
@@ -307,10 +307,12 @@ Route::post('handle-form', function()
 ```
 
 * A `GET` request with the URI `/test` will take us to the `new-test-form.blade.php` form.
+* We include `'files' => 'true'` in the `Form::open()` parameters as when working with files we need the HTML form attribute `'enctype' => 'multipart/form-data'`. 
 * Once we submit a file, a `POST` request is sent to the `handle-form` URI.
 * `Input::file('my_file') represents 'my_file' as an object
 * The upload currently resides in a temporary location which only exists as long as the current request.
 * `getFileName()` allows us to access the temporary fileName property of the 'my_file' object.
+
 ___
 
 ###working with uploaded files and *getClientOriginalName()*
@@ -322,7 +324,7 @@ ___
     <head>
     </head>
     <body>
-        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::open(array('url' => 'handle-form','files' => 'true')) }}
         {{ Form::file('my_file') }}
         {{ Form::submit() }}
         {{ Form::close() }}
@@ -362,7 +364,7 @@ ___
     <head>
     </head>
     <body>
-        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::open(array('url' => 'handle-form','files' => 'true')) }}
         {{ Form::file('my_file') }}
         {{ Form::submit() }}
         {{ Form::close() }}
@@ -403,7 +405,7 @@ ___
     <head>
     </head>
     <body>
-        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::open(array('url' => 'handle-form','files' => 'true')) }}
         {{ Form::file('my_file') }}
         {{ Form::submit() }}
         {{ Form::close() }}
@@ -444,7 +446,7 @@ ___
     <head>
     </head>
     <body>
-        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::open(array('url' => 'handle-form','files' => 'true')) }}
         {{ Form::file('my_file') }}
         {{ Form::submit() }}
         {{ Form::close() }}
@@ -485,7 +487,7 @@ ___
     <head>
     </head>
     <body>
-        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::open(array('url' => 'handle-form','files' => 'true')) }}
         {{ Form::file('my_file') }}
         {{ Form::submit() }}
         {{ Form::close() }}
@@ -526,7 +528,7 @@ ___
     <head>
     </head>
     <body>
-        {{ Form::open(array('url' => 'handle-form','enctype' => 'multipart/form-data')) }}
+        {{ Form::open(array('url' => 'handle-form','files' => 'true')) }}
         {{ Form::file('my_file') }}
         {{ Form::submit() }}
         {{ Form::close() }}
