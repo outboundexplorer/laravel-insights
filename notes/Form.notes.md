@@ -324,3 +324,32 @@ ___
 ```
 
 * Additional parameters can be added using an array().  (Note that in this case the final array() is immediately after the first parameter.)
+
+___
+
+###Form::checkbox()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{ Form::label('checkbox','Remember Me') }}
+    {{ Form::checkbox('checkbox', 'yes', true) }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="checkbox">Remember Me</label>
+    <input checked="checked" name="checkbox" type="checkbox" value="yes" id="checkbox">
+</form>
+```
+
+* The second parameter is used to define the value when the box is checked and is an optional attribute. (The default value for a checked box is `'1'`
+* The third parameter is also an optional attribute and can be used to determine whether the checkbox is initially checked (`true`) or unchecked (`false`). (If this parameter is not included, the checkbox is unchecked as default).
+* If further attributes are required, these can be set using an array() for the 4th parameter.
+___
+
