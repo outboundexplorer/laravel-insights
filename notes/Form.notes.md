@@ -261,7 +261,7 @@ Route::post('/my/form/route',...));
 {{ Form::open(array('url' => 'my/form/route')) }}
     {{ Form::label('username', 'Username') }}
 	
-    {{ Form::text('username','default value', <b>array('class' => 'input-field'))</b> }}
+    {{ Form::text('username','default value', array('class' => 'input-field')) }}
 	
 {{ Form::close() }}
 ```
