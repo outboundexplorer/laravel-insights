@@ -295,7 +295,7 @@ ___
     <label for="comments">Comments</label>
     <textarea placeholder="Please enter your comments here" class="form-field" name="comments" cols="50" rows="10" id="comments"></textarea>
 </form>
-
+```
 
 * If a value is entered as the second parameter, this will override any attributes placed in the final parameter array().  (i.e. it is pointless to have a `'value'` or `'placeholder'` attribute if the second parameter is not `null`.
 * Laravel has automatically added default parameters  `cols="50"` and `rows="10"` (we can override these by adding `'key' => 'value'` pairs to the third parameter array().
