@@ -29,9 +29,7 @@ which is the same as
 ```
 
 
-```html
 
-```
 
 * When using `Form::open()` and `Form::close()` the method is set to `POST` as default
 * Using `Form::open()` and `Form::close()` will automatically have a `_token` added as a hidden input into the Page Source.
