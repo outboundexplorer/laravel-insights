@@ -229,7 +229,7 @@ Route::post('/my/form/route',...));
 </form>
 ```
 
-* We can also use the optional second parameter to add a default value for the input.
+######adding an optional second parameter to add a default value for the input.
 
 ```html
 <!-- app/views/myform.blade.php -->
