@@ -192,3 +192,63 @@ ___
 
 ___
 
+###Form::text()
+
+```php
+// app/routes.php
+
+Route::get('/my/form/route', function()
+{
+    return View::make('myform');
+});
+
+Route::post('/my/form/route',...));
+```
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{ Form::label('username', 'Username') }}
+    {{ Form::text('username') }}
+{{ Form::close() }}
+```
+
+If we take a look at the Page Source, we will see the following:
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="username">Username</label>
+    <input name="username" type="text" id="username">
+</form>
+```
+
+We can also use the optional second parameter to add a default value for the input.
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{ Form::label('username', 'Username') }}
+    {{ Form::text('username','default value') }}
+{{ Form::close() }}
+```
+
+If we now take a look at the Page Source we will now see the following.
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="username">Username</label>
+    <input name="username" type="text" value="default value" id="username">
+</form>
+```
+
+If we want to add further attributes, we can use an array() as an optional third parameter
+
+
