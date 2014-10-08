@@ -2,7 +2,7 @@
 
 @section('content')
 
-    {{ Form::open(array('route' => 'forgot-password.post', 'value' => Input::old('email') )) }}
+    {{ Form::open(array('route' => 'forgot-password.post' )) }}
 
     <div>
         @if($errors->has('email'))
