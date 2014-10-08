@@ -226,7 +226,7 @@ If we take a look at the Page Source, we will see the following:
 </form>
 ```
 
-We can also use the optional second parameter to add a default value for the input.
+* We can also use the optional second parameter to add a default value for the input.
 
 ```html
 <!-- app/views/myform.blade.php -->
@@ -237,7 +237,6 @@ We can also use the optional second parameter to add a default value for the inp
 {{ Form::close() }}
 ```
 
-If we now take a look at the Page Source we will now see the following.
 
 ```html
 <!-- Page Source for myform.blade.php -->
@@ -249,7 +248,7 @@ If we now take a look at the Page Source we will now see the following.
 </form>
 ```
 
-If we want to add further attributes, we can use an array() as an optional third parameter
+* If we want to add further attributes, we can use an array() as an optional third parameter
 
 ```html
 <!-- app/views/myform.blade.php -->
