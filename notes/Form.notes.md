@@ -353,3 +353,66 @@ ___
 * If further attributes are required, these can be set using an array() for the 4th parameter.
 ___
 
+###Form::radio()
+
+```html
+<!-- app/views/myform.blade.php -->
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::label('nation','Nationality') }}
+    {{  Form::radio('nation','british', true) }} British
+    {{  Form::radio('nation','american') }} American
+    {{  Form::radio('nation','australian') }} Australian
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="nation">Nationality</label>
+    <input checked="checked" name="nation" type="radio" value="british" id="nation"> British
+    <input name="nation" type="radio" value="american" id="nation"> American
+    <input name="nation" type="radio" value="australian" id="nation"> Australian
+</form>
+```
+
+* All radio buttons have the same name attribute for the first parameter.
+* The second parameter is the value that is given to each radio button should it be checked.
+* We can include an optional third parameter to check a radio box as default. (only one radio box can be checked at any one time)
+
+___
+
+###Form::select()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::label('language','Nationality') }}
+    {{  Form::select('language' ,array(
+            'english' => 'English',
+            'spanish' => 'Spanish',
+            'chinese' => 'Chinese'
+            ), 'chinese') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="language">Nationality</label>
+    <select id="language" name="language">
+		<option value="english">English</option>
+		<option value="spanish">Spanish</option>
+		<option value="chinese" selected="selected">Chinese</option></select>
+</form>
+```
+
+* `'name' => 'value'` pairs are placed into an array for the second parameter to represent the different options.
+* We can include an optional third parameter to select an option as default. (only one select option can be chosed at one time).
+* It is possible to add additional attributes with a fourth argument.
+
+___
