@@ -24,7 +24,6 @@ which is the same as
 <!-- app/views/form.blade.php -->
 
 {{ Form::open(array('url' => 'relevant/route') }}
-
 {{ Form::close() }}
 ```
 
