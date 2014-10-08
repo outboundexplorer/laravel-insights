@@ -253,7 +253,7 @@ Route::post('/my/form/route',...));
 </form>
 ```
 
-* If we want to add further attributes, we can use an array() as an optional third parameter
+######adding further with an array() as an optional third parameter
 
 ```html
 <!-- app/views/myform.blade.php -->
