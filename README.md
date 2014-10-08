@@ -1,7 +1,7 @@
 ##Laravel insights 
 
 
-This is a curated compilation of reference notes and solutions to different kinds of problems.  This is somewhere that we can put our minds together and create a wonderful resource.  By sharing our ideas and insights and explaining them in ways that are easy for others to understand, we are able to expand our own understanding and build a community resource in the process. Somewhere we can go to when we can't quite remember how something is done.
+This is a curated compilation of reference notes and solutions to different kinds of problems.  This is somewhere that we can put our minds together and create a wonderful resource.  By sharing our ideas and insights and explaining them in ways that are easy for others to understand, we are able to expand our own understanding and build a community resource in the process. It's somewhere we can go to when we can't quite remember how something is done.
 
 * [notes index](https://github.com/outboundexplorer/laravel-insights/blob/master/notes_index.md)
 * [solutions index](https://github.com/outboundexplorer/laravel-insights/blob/master/solutions_index.md)
