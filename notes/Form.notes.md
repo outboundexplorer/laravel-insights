@@ -491,3 +491,120 @@ ___
 
 ___
 
+###Form::file()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array(
+        'url' => 'my/form/route',
+        'files' => true
+      ))
+}}
+    {{  Form::label('profile_image','Profile image') }}
+    {{  Form::file('profile_image') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8" enctype="multipart/form-data">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <label for="profile_image">Profile image</label>
+    <input name="profile_image" type="file" id="profile_image">
+</form>
+```
+
+* When working with files the `'files'` parameter must be set `Form::open(array('url' => 'my/form/route', 'files' => true))`
+
+___
+
+###Form::hidden()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::hidden('hidden_name','hidden_value') }}
+{{ Form::close() }}
+
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <input name="hidden_name" type="hidden" value="hidden_value">
+</form>
+```
+
+___
+
+###Form::submit()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::submit('Submit') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <input type="submit" value="Submit">
+</form>
+```
+
+___
+
+###Form::button()
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::button('Join Us!') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <button type="button">Join Us!</button>
+</form>
+```
+
+___
+
+###Form::image()
+
+```html
+<!-- app/views/myform.blade.php -->
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::image('storage/images/myImage.jpg', 'my_button') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="TdR23PJdUMlcz5QABbtA9IIdOKtUojuk1razGdlb">
+    <input src="http://laravel_testlab/storage/images/myImage.jpg" name="my_button" type="image">
+</form>
+```
+
+
+
+* If we do not provide a complete URL, then the application's URL will be used.
+* We can use the optional second parameter to name the input field.
+* We can include additional parameters as an array() in the optional third parameter.  
+
+___ 
