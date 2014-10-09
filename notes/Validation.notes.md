@@ -42,7 +42,7 @@ date						value is a valid date
 ```
 
 ```html
-date_format:d/m/y			value is a date string that matches the format provided as a parameter										
+date_format:d/m/y			value is a date string that matches the format provided as a parameter
 ```
 
 ```html
@@ -56,84 +56,80 @@ email						value is a valid email address
 ```html
 exists:users,username		value exists within 'users' table under the 'username' column' 
 							(second parameter is optional -- default will use current field name)
+							
+							exists:users,username,role,admin  -- where role column has the role admin      							
 ```
 
 ```html
-
+image						file extension is (.bmp), (.gif), (.jpeg) or (.png)
 ```
 
 ```html
-
+in:UK,USA,India				value matches on of the parameters
 ```
 
 ```html
-
+integer						value is an integer
 ```
 
 ```html
-
+ip							value is a correctly formatted IP address
 ```
 
 ```html
-
+max:10						value is smaller than or equal to 10
 ```
 
 ```html
-
+mimes:pdf,doc,docx			value matches uploaded file's mime type specified in parameters						
 ```
 
 ```html
-
+min:10						value is greater than or equal to parameter
 ```
 
 ```html
-
+not_in:USA,UK, India		value does not match values provided in the parameters
 ```
 
 ```html
-
+numeric						value is a numeric value
 ```
 
 ```html
-
+regex:[a-z]					value contains only lowercase letters (a-z)
 ```
 
 ```html
-
+required					current field must have a value
 ```
 
 ```html
-
+required_if:username,jim	current field must have a value when username field is jim
 ```
 
 ```html
-
+required_with:size,color	current field must have a value when size and color fields have values exist				
 ```
 
 ```html
-
+required_without:color		current field must have a value when color does not have a value
 ```
 
 ```html
-
+same:color					value must match the value of the color field
 ```
 
 ```html
-
+size:10						value of a string must match the number of characters declared by the parameter
+							value of a numeric value must match mathmatically
 ```
 
 ```html
-
+unique:users,username		value must be unique in the username of the users table 
+							(second parameter is optional -- default will use current fields name) 
 ```
 
 ```html
-
-```
-
-```html
-
-```
-
-```html
-
+url							value is a valid URL (does not check DNS records)
 ```
