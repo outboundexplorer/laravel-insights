@@ -10,7 +10,7 @@ Make sure to change the route.php file to point to this form.
     <div>
         {{ Form::open(array('url' => 'form/route')) }}
 
-		<ul class = "errors">
+		<ul class="errors">
 			@foreach($errors->all() as $error)
 				<li> {{ $error }} </li>
 			@endforeach
