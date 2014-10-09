@@ -1,7 +1,8 @@
 <!-- app/views/form-alternative.blade.php -->
 <!-- 
 This alternative version to the form.bade.php file shows another way of displaying error messages. 
-Make sure to change the route.php file to point to this form.
+Make sure to change the route.php file to point to this form.  This version will show all error 
+messages, but will display them in a block at the top of the form page.
 -->
 
 @extends('layout')
