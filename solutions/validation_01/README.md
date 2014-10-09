@@ -5,7 +5,7 @@ ___
 
 **Features**
 * Sign in form with validation
-* Display errors in form
+* Display errors in form (several different methods for displaying errors are demonstrated)
 * Sticky input when fails validation
 
 ___
@@ -13,6 +13,7 @@ ___
 **Code Style**
 * Closure in routes.php
 * all application logic placed in routes.php
+
 
 ___
 

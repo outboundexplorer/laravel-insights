@@ -1,4 +1,11 @@
 <!-- app/views/form.blade.php -->
+<!--
+There are several alternative forms available to try out.  Note that although the error messages 
+are displayed very neatly in this version, however, only the first error is displayed for 
+each errors['key'].  The other versions offer various different approaches to displaying
+error messages.
+--> 
+
 
 @extends('layout')
 
