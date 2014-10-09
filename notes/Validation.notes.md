@@ -46,7 +46,7 @@ date_format:d/m/y			value is a date string that matches the format provided as a
 ```
 
 ```html
-different:another_field		value to this field is different to the value of another_field						
+different:another_field		value to this field is different to the value of another_field
 ```
 
 ```html
