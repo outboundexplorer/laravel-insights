@@ -117,19 +117,19 @@ required_without:color		current field must have a value when color does not have
 ```
 
 ```html
-same:color					value must match the value of the color field
+same:color					Value must match the value of the color field
 ```
 
 ```html
-size:10						value of a string must match the number of characters declared by the parameter
-							value of a numeric value must match mathmatically
+size:10						Value of a string must match the number of characters declared 
+							by the parameter. Value of a numeric value must match mathematically.
 ```
 
 ```html
-unique:users,username		value must be unique in the username of the users table 
+unique:users,username		value must be unique in the username of the users table. 
 							(second parameter is optional -- default will use current fields name) 
 ```
 
 ```html
-url							value is a valid URL (does not check DNS records)
+url							value is a valid URL (does not check DNS records).
 ```
