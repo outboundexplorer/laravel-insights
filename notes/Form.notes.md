@@ -632,3 +632,87 @@ ___
 
 ###Form::macro()
 
+```php
+// app/start/global.php
+
+Form::macro('my_macro', function()
+{
+    return '<input type="input_type" value="default_value">';
+});
+```
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::my_macro() }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="lFZAk2EfMrPvLBArOfsps0lgyFR9KFx4PfeDM5Zp">
+    <input type="input_type" value="default_value">
+</form>
+```
+
+* The custom `Form::macro()` is defined in the global namespace which is included by being placed in the `global.php` file.
+* The first parameter is the name given to the custom macro.
+* The second parameter is a Closure which defines the contents of the macro.
+* We are able to access the macro in our blade file the same way that we access the other Form methods.
+* Note that as this has now been placed in the global namespace, this is not really following with OOP design principles.  An alternative might be to create a new class and extend the FormBuilder class.  We can then create a new public function with the name of our macro.  We will also then be able to call on this as a Form facade method.
+
+___
+
+###creating a Form::macro() with parameters
+
+```php
+// app/start/global.php
+
+Form::macro('my_macro', function($name, $type, $value, $count = 10)
+{
+    $build = array();
+    $start = 1;
+
+    For($i = 1; $i<$count; $i++ )
+    {
+        $build[] = sprintf('<input name="%s" type="%s" value="%s" index="%s">', $name, $type, $value, $start);
+        $start += 1;
+    }
+
+    return implode("<br/>", $build);
+});
+```
+
+```html
+<!-- app/views/myform.blade.php -->
+
+{{ Form::open(array('url' => 'my/form/route')) }}
+    {{  Form::my_macro('my_name','text', 'my_value') }}
+{{ Form::close() }}
+```
+
+```html
+<!-- Page Source for myform.blade.php -->
+
+<form method="POST" action="http://laravel_testlab/my/form/route" accept-charset="UTF-8">
+	<input name="_token" type="hidden" value="lFZAk2EfMrPvLBArOfsps0lgyFR9KFx4PfeDM5Zp">
+    <input name="my_name" type="text" value="my_value" index="1"><br/>
+	<input name="my_name" type="text" value="my_value" index="2"><br/>
+	<input name="my_name" type="text" value="my_value" index="3"><br/>
+	<input name="my_name" type="text" value="my_value" index="4"><br/>
+	<input name="my_name" type="text" value="my_value" index="5"><br/>
+	<input name="my_name" type="text" value="my_value" index="6"><br/>
+	<input name="my_name" type="text" value="my_value" index="7"><br/>
+	<input name="my_name" type="text" value="my_value" index="8"><br/>
+	<input name="my_name" type="text" value="my_value" index="9">
+</form>
+```
+
+* We have now created a new `Form::macro()` that can take 4 arguments (the 4th argument is optional as we have provided a default).
+* All required arguments must be provided when we call the macro in myform.blade.php `Form::my_macro('my_name','text','my_value')`.
+* Note that we require the macro to output a string (any arrays must be converted into a string).
+
+___
