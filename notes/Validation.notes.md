@@ -126,10 +126,10 @@ size:10						Value of a string must match the number of characters declared
 ```
 
 ```html
-unique:users,username		value must be unique in the username of the users table. 
+unique:users,username		Value must be unique in the username of the users table. 
 							(second parameter is optional -- default will use current fields name) 
 ```
 
 ```html
-url							value is a valid URL (does not check DNS records).
+url							Value is a valid URL (does not check DNS records).
 ```
