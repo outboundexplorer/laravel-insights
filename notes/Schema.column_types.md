@@ -31,7 +31,7 @@ $table->integer('qty');						// int(11) signed
 ```php
 $table->bigInteger('qty');					// bigint(20)
 
-											// Note: signed bigint (+/- 9,223,372,036,854,775,808 (or 807))
+											// Note: signed bigint (+/- 9,223,372,036,854,775,808/7)
 											//		 unsigned int (0 to 18,446,744,073,709,551,615)
 ```
 
