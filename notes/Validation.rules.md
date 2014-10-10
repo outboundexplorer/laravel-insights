@@ -89,7 +89,7 @@ min:10						Value is greater than or equal to parameter.
 ```
 
 ```html
-not_in:USA,UK, India		Value does not match values provided in the parameters.
+not_in:USA,UK,India		Value does not match values provided in the parameters.
 ```
 
 ```html
