@@ -55,9 +55,9 @@
   + [Cookie::forever()](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Request.notes.md#cookieforever)
   + [Cookie::forget()](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Request.notes.md#cookieforget)
 
-* Schema
-  + [main notes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.notes.md)
-  + [column Types](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.column_types.md)
+* [Schema](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.notes.md)
+
+* [Schema Column Types](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.column_types.md)
 
 
 ___
