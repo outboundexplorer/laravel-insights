@@ -415,7 +415,7 @@ ____
 ```
 
 * `'name' => 'value'` pairs are placed into an array for the second parameter to represent the different options.
-* We can include an optional third parameter to select an option as default. (only one select option can be chosed at one time).
+* We can include an optional third parameter to select an option as default. (only one select option can be chosen at one time).
 * It is possible to add additional attributes with a fourth argument.
 
 ____
