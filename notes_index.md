@@ -56,6 +56,8 @@
   + [Cookie::forget()](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Request.notes.md#cookieforget)
 
 * Schema
+  
+  +[Notes]()
   +[Column Types](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.column_types.md)
 
 
