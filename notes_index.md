@@ -57,9 +57,9 @@
 
 * Schema
   
-  +[main notes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.notes.md)
+  + [main notes](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.notes.md)
 
-  +[column Types](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.column_types.md)
+  + [column Types](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.column_types.md)
 
 
 ___
