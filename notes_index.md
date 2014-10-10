@@ -59,5 +59,8 @@
 
 * [Schema Column Types](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Schema.column_types.md)
 
+* [Validation Rules](https://github.com/outboundexplorer/laravel-insights/blob/master/notes/Validation.rules.md)
+
+
 
 ___
