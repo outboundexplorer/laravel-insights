@@ -24,7 +24,7 @@ is the same as
 ```php
 $table->string('username');
 $table->unique('username');
-
+```
 ___
 
 ###primary()
