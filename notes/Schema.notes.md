@@ -30,12 +30,19 @@ ___
 ###primary()
 
 ```php
-$table->string('username')->unique()->primary();
+$table->string('username')->primary();
 ```
 
 is the same as 
 
 ```php
-$table->string('username');
-$table->unique('username');
+$table->integer('username');
 $table->primary('username');
+```
+
+___
+
+###composite *primary()**
+
+
+* In the example, there is no 
