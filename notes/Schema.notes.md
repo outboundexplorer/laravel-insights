@@ -296,4 +296,5 @@ ___
 $table->string('username')->after('id');
 ```
 
+* This is used to reorder the columns.  
 ___  
