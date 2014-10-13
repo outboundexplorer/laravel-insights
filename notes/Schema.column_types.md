@@ -22,7 +22,10 @@ $table->string('body');						// text
 ``` 
 
 ```php
-$table->integer('qty');						// int(11) signed  
+$table->integer('qty');						// int(11) signed
+$table->integer('qty',1,1);					// int(10) auto_increment   unsigned
+$table->integer('qty',0,1);					// int(10) unsigned
+  
 
 											// Note: signed int (-2,147,483,648 to 2,147,483,647)
 											//		 unsigned int (0 to 4,294,967,295)
