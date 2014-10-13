@@ -51,18 +51,47 @@ Schema::dropIfExists('users');
 
 ___
 
-###unique()
+###Schema::connection()
 
 ```php
-$table->string('username')->unique();
+Schema::connection('mysql')->create('users',function($table)
+{
+	$table->increments('id');
+});
 ```
 
-is the same as
+* `Schema::connection()` can be very useful if the application uses multiple databases.
+
+___
+
+###Schema::hasTable()
 
 ```php
-$table->string('username');
-$table->unique('username');
+if (Schema::hasTable('users'))
+{
+	Schema::create('groups', function($table)
+	{
+		$table->increments('id');
+	});
+}
+
+___
+
+###Schema::hasColumn()
+
+```php
+if (Schema::hasColumn('users','username'))
+{
+	Schema::table('users', function($table)
+	{
+		$table->string('last_name');
+	});
+}
 ```
+
+* The first parameter is the name of the table `users` and the second parameter is the name of the column that we want to check `username`.
+
+
 ___
 
 ###primary()
@@ -91,6 +120,35 @@ $table->primary(array('username','group'));
 * In the case of composite primary key, it is not possible to independently define each field as `primary()`.
 
 ___
+
+###unique()
+
+```php
+$table->string('username')->unique();
+```
+
+is the same as
+
+```php
+$table->string('username');
+$table->unique('username');
+```
+___
+
+###composite *unique()* key
+
+```php
+$table->string('username');
+$table->string('group');
+$table->unique(array('username','group'));
+```
+
+* A composite unique index will check whether the combination of the two values is unique.
+* A composite index must be dropped using the same method `$table->dropIndex(array('latitude','longitude'));`
+
+___
+
+
 
 ###index()
 
@@ -191,7 +249,7 @@ $table->dropUnique('users');
 ```
 
 
-* To remove multiple unique indexes, we can use an array `$table->dropUnique(array('users','groups'))`
+* To remove multiple unique indexes, we must remove them one by one.  This is because an array will look for a composite unique index. 
 
 ___
 
@@ -201,4 +259,41 @@ ___
 $table->dropIndex('users');
 ```
 
-Can we use an array()???
+* To remove multiple indexes, we must remove them one by one.
+
+___
+
+###$table->engine = 'InnoDB'
+
+```php
+Schema::create('users', function($table)
+{
+	$table->engine = 'InnoDB';
+	$table->increments('id');
+	$table->timestamps();
+});
+```
+
+* With MySQL, we can select the following databases: 
+```php
+MyISAM
+InnoDB
+IBMDM21
+MERGE
+MEMORY
+EXAMPLE
+FEDERATED
+ARCHIVE
+CSV
+BLAKHOLE
+```
+
+___
+
+###after()
+
+```php
+$table->string('username')->after('id');
+```
+
+___  
