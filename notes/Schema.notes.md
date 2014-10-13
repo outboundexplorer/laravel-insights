@@ -123,6 +123,8 @@ $table->index(array('latitude','longitude');
 ```
 
 * The above index will only benefit search capabilities on `latitude`, `latitude & longitude`.  Searches on just `longitude` will not benefit from this composite index.
+* A composite index must be dropped using the same method `$table->dropIndex(array('latitude','longitude'));`
+
 ___
 
 ###nullable()
