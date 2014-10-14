@@ -450,5 +450,100 @@ Route::get('selected', function()
 * `orWhereRaw()` method allows us to provide alternative constraints.
 
 ___
+
+###whereBetween()
+
+```php
+// app/routes.php
+
+Route::get('between', function()
+{
+    return Group::whereBetween('id', array('1','3'))
+        ->get();
+});
+
+* First parameter is the column name
+* Second parameter is array of the two values, starting value and limit.
+* We can also use the `orWhereBetween()` constraint to provide alternative constraints.
+* We can use as many `whereBetween()` or `orWhereBetween()` constraints as required.
 ___
+
+###whereNested()
+
+```php
+// app/routes.php
+
+Route::get('nested', function()
+{
+    return Group::whereNested(function($query)
+    {
+        $query->where('id','=','1');
+        $query->orWhere('id','>','5');
+    })
+    ->get();
+});
+
+* `whereNested()` is a clean way of applying multiple where constraints to a query.
+* We are able to apply as many `where()` or `orWhere()` constraints within the `Closure`.
+* We can also build up a series of `orWhereNested()` in the same way.
+
+___
+
+###whereIn()
+
+```php
+// app/routes.php
+
+Route::get('wherein', function()
+{
+    $values = array('friends','laravel');
+    return Group::whereIn('name', $values)
+        ->toSql();
+});
+```
+
+* The `whereIn()` constraint is very useful when we know we are looking for a specific set of values.
+* We can also use the `orWhereIn()` method.
+___
+
+###whereNotIn()
+
+```php
+// app/routes.php
+
+Route::get('wherenotin', function()
+{
+    $values = array('friends','laravel');
+    return Groupie::whereNotIn('name', $values)
+        ->get();
+});
+```
+
+
+* The `whereNotIn()` constraint is very useful when we know we don't want to include a specific set of values.
+* We can also use the `orWhereNotIn()` method.
+___
+
+###whereNull()
+
+```php
+// app/routes.php
+
+Route::get('wherenull', function()
+{
+	return Group::whereNull('column_name')
+		->get();
+});
+```
+
+* We can also use the `orWhereNull()` method to provide alternative constraints.
+
+___
+
+
+
+
+
+
+
 
