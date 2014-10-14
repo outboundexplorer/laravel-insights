@@ -175,6 +175,60 @@ Route::get('data', function()
 * If we `var_dump(Group::first());` we see that a complete instance of the Group Model class has been dumped.
 ___
 
+
+###last()
+
+```php
+// app/routes.php
+
+Route::get('data', function()
+{
+	return Group::last();
+});
+```
+
+* This will return a `JSON` array of the data in the last row of the database.
+* If we `var_dump(Group::last());` we see that a complete instance of the Group Model class has been dumped.
+___
+
+###shift()
+
+```php
+// app/routes.php
+
+Route::get('shift', function()
+{
+    $collection = Group::all();
+    var_dump(count($collection));
+    var_dump($collection->shift());
+    var_dump(count($collection));
+});
+```
+
+* This is similar to the `first()` method, but it will also remove the first instance from the *Collections* array().
+
+___
+
+###pop()
+
+```php
+// app/routes.php
+
+Route::get('pop', function()
+{
+    $collection = Group::all();
+    var_dump(count($collection));
+    var_dump($collection->shift());
+    var_dump(count($collection));
+});
+```
+
+* This is similar to the `last()` method, but it will also remove the last instance from the *Collections* array().
+
+___
+
+
+
 ###update()
 
 ```php
