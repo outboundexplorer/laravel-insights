@@ -461,6 +461,7 @@ Route::get('between', function()
     return Group::whereBetween('id', array('1','3'))
         ->get();
 });
+```
 
 * First parameter is the column name
 * Second parameter is array of the two values, starting value and limit.
@@ -482,6 +483,7 @@ Route::get('nested', function()
     })
     ->get();
 });
+```
 
 * `whereNested()` is a clean way of applying multiple where constraints to a query.
 * We are able to apply as many `where()` or `orWhere()` constraints within the `Closure`.
