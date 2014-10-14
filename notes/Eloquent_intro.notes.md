@@ -467,7 +467,9 @@ Route::get('between', function()
 * Second parameter is array of the two values, starting value and limit.
 * We can also use the `orWhereBetween()` constraint to provide alternative constraints.
 * We can use as many `whereBetween()` or `orWhereBetween()` constraints as required.
+
 ___
+
 
 ###whereNested()
 
@@ -491,6 +493,7 @@ Route::get('nested', function()
 
 ___
 
+
 ###whereIn()
 
 ```php
@@ -506,7 +509,9 @@ Route::get('wherein', function()
 
 * The `whereIn()` constraint is very useful when we know we are looking for a specific set of values.
 * We can also use the `orWhereIn()` method.
+
 ___
+
 
 ###whereNotIn()
 
@@ -524,7 +529,9 @@ Route::get('wherenotin', function()
 
 * The `whereNotIn()` constraint is very useful when we know we don't want to include a specific set of values.
 * We can also use the `orWhereNotIn()` method.
+
 ___
+
 
 ###whereNull()
 
@@ -544,8 +551,126 @@ ___
 
 
 
+###whereNotNull()
+
+```php
+// app/routes.php
+
+Route::get('wherenotnull', function()
+{
+	return Group::whereNotNull('column_name')
+		->get();
+});
+```
+
+* If we do not have any `NULL` values in our database, this will return all database records.
+* We can also use the `orWhereNotNull()` method to provide alternative constraints.
+
+___
+
+###orderBy()
+
+```php
+// app/routes.php
+
+Route::get('order', function()
+{
+    return Groupie::where('id','>','2')
+        ->orderBy('id')
+        ->get();
+});
+```
+
+* The first parameter of `orderBy('column_name')` is the name of the column that we wish to order by.
+* The default order is ascending. 
+* Use `orderBy('id','desc')` if we want descending order.
+
+___
+
+###take()
+
+```php
+// app/routes.php
+
+Route::get('take', function()
+{
+    return Group::take(3)
+        ->orderBy('id')
+        ->get();
+});
+```
+
+* The parameter passed to the `take()` method is the number of result rows that we wish to limit the query to.
+
+___
+
+###ship()
+
+```php
+// app/routes.php
+
+Route::get('skip', function()
+{
+    return Groupie::take(3)
+        ->skip(1)
+        ->orderBy('id')
+        ->get();
+});
+```
+
+* The `skip()` method takes a single parameter to provide an offset.
+* In the example the first row will be discarded from the result set.
+
+___
+
+###magic *where()* queries
+
+```php
+// app/routes.php
+
+Route::get('magic',function()
+{
+   return Groupie::whereName('friends')
+        ->get();
+});
+```
+
+* `whereName('friends')` is the equivalent to `where('name','=','friends')`
+* The `name` column becomes `whereName()`.
+* For snake_cased columns `group_name` becomes `whereGroupName()`
+
+___
+
+###using *scope methods()* to simplify common queries
 
 
+```php
+// app/models/Group.php
 
+class Group extends Eloquent {
 
+    public $table = 'groups';
+
+    public $item = '%laravel%';
+
+    public function scopeFindLaravel($query)
+    {
+        return $query->where('description','LIKE', $this->item);
+    }
+} 
+```
+
+```php
+// app/routes.php
+
+Route::get('laravel-search',function()
+{
+    return Group::findLaravel()->get();
+});
+```
+
+* We can define a `scopeMethod($query)` within our model. 
+* For queries that we intend to perform very often, we are able to add a method to our model class.
+
+___
 
