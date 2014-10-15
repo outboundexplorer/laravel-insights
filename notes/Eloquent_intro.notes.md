@@ -1,5 +1,7 @@
 ###create a new Eloquent model
 
+*example*
+
 ```php
 // app/models/Group.php
 
@@ -15,6 +17,8 @@ class Group extends Eloquent
 ___
 
 ###saving data to the database
+
+*example*
 
 ```php
 // app/routes.php
@@ -39,6 +43,8 @@ ___
 
 ###disable automatic timestamp updates
 
+*example*
+
 ```php
 // app/models/Group.php
 
@@ -51,6 +57,7 @@ class Group extends Eloquent {
 ___
 
 ###defining your own table names
+*example*
 
 ```php
 // app/models/Group.php
@@ -66,6 +73,8 @@ class Group extends Eloquent {
 ___
 
 ###find()
+*example*
+
 
 ```php
 // app/routes.php
