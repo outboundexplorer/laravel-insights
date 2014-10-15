@@ -349,7 +349,7 @@ public function sort(Closure $callback)
 	return $this;
 }
 ```
-*Example*
+*example*
 ```php
 // app/routes.php 
 
@@ -397,7 +397,7 @@ public function reverse()
 }
 ```
 
-**Example**
+*Example*
 
 ```php
 // app/routes.php 
