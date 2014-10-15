@@ -253,6 +253,8 @@ ___
  */
 ```
 
+*example*
+
 ```php
 // app/routes.php
 
@@ -295,6 +297,8 @@ ___
  * @return static
  */
 ```
+
+*example*
 
 ```php
 // app/routes.php
@@ -384,7 +388,7 @@ ___
 ###reverse()
 
 ```php
-// laravel\framework\src\Illuminate\Support\Collection.php
+// laravel/framework/src/Illuminate/Support/Collection.php
 
 /**
  * Reverse items order.
@@ -397,7 +401,7 @@ public function reverse()
 }
 ```
 
-*Example*
+*example*
 
 ```php
 // app/routes.php 
@@ -420,6 +424,157 @@ Route::get('reverse', function()
 });
 ```
 
+___
+
+###merge()
+
+```php
+// laravel/framework/src/Illuminate/Support/Collection.php
+
+/**
+ * Merge the collection with the given items.
+ *
+ * @param  \Illuminate\Support\Collection|\Illuminate\Support\Contracts\ArrayableInterface|array  $items
+ * @return static
+ */
+public function merge($items)
+{
+	return new static(array_merge($this->items, $this->getArrayableItems($items)));
+}
+```
+
+*example*
+
+```php
+// app/routes.php
+
+Route::get('merge', function()
+{
+    $a = Group::where('name','LIKE','%laravel%')
+        ->get();
+    $b = Group::where('description','LIKE','%laravel%')
+        ->get();
+
+    $result = $a->merge($b);
+
+    $result->each(function($instance)
+    {
+        echo $instance->name.'<br/>';
+    });
+});
+```
+
+* We have created a new set of group names combining the two result sets `$a` and `$b`
+
+___
+
+###slice()
+
+```php
+// laravel/framework/src/Illuminate/Support/Collection.php
+
+/**
+ * Slice the underlying collection array.
+ *
+ * @param  int   $offset
+ * @param  int   $length
+ * @param  bool  $preserveKeys
+ * @return static
+ */
+public function slice($offset, $length = null, $preserveKeys = false)
+{
+	return new static(array_slice($this->items, $offset, $length, $preserveKeys));
+}
+```
+
+*example 1*
+
+```php
+// app/routes.php
+
+Route::get('slice',function()
+{
+    $collection = Group::all();
+    $result = $collection->slice(2,4);
+    $result->each(function($instance)
+    {
+        echo $instance->name.'<br/>';
+    });
+});
+```
+
+* We create a new collection $result using the `slice()` method.
+* The first parameter is the position that the new set will start.  In the example we are starting at the third position of the original collection array.
+* The second parameter is the length of the collection.
+
+*example 2 (using a negative offset)*
+
+```php
+// app/routes.php
+
+Route::get('slice',function()
+{
+    $collection = Group::all();
+    $result = $collection->slice(-2,4);
+    $result->each(function($instance)
+    {
+        echo $instance->name.'<br/>';
+    });
+});
+```
+
+* When we use a negative value for the offset the slice will start at the position of two from the end of the collection.
+
+___
+
+###isEmpty()
+
+```php
+// laravel/framework/src/Illuminate/Support/Collection.php
+
+/**
+ * Determine if the collection is empty or not.
+ *
+ * @return bool
+ */
+public function isEmpty()
+{
+	return empty($this->items);
+}
+```
+
+*example*
+
+```php
+// app/routes.php
+
+Route::get('isempty', function() {
+
+    // This query will return items
+    $a = Groupie::all();
+
+    // This query will not return items
+    $b = Groupie::where('name', '=', 'ZF2')
+        ->get();
+
+    var_dump($a->isEmpty());
+    var_dump($b->isEmpty());
+});
+```
+
+```php
+// OUTPUT >>>		bool(false) 
+					bool(true)
+```
+
+___
+
+
+
+
+
+
+____
 ___
 
 ###update()
