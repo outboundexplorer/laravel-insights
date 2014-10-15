@@ -347,6 +347,8 @@ ___
 
 ###sort()
 
+*source*
+
 ```php
 // laravel\framework\src\Illuminate\Support\Collection.php 
 
@@ -396,6 +398,7 @@ Route::get('sort', function()
 ___
 
 ###reverse()
+*source*
 
 ```php
 // laravel/framework/src/Illuminate/Support/Collection.php
@@ -437,6 +440,7 @@ Route::get('reverse', function()
 ___
 
 ###merge()
+*source*
 
 ```php
 // laravel/framework/src/Illuminate/Support/Collection.php
