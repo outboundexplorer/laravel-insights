@@ -16,7 +16,7 @@ class Group extends Eloquent
 
 ___
 
-###saving data to the database
+###saving data to the database using *save()*
 
 *example*
 
@@ -38,6 +38,65 @@ Route::get('save', function()
 
 * `save()` is used to save the data to the database.
 * In the example, we have only created one new instance of the Group class.  Therefore only `'Laravel Websites'` will be saved as the `group->name`. 
+
+___
+
+
+
+###saving data to the database using *create()*
+
+*laravel framework*
+
+```php
+// laravel/framework/src/Illuminate/Database/Eloquent/Model.php
+
+/**
+ * Save a new model and return the instance.
+ *
+ * @param  array  $attributes
+ * @return static
+ */
+public static function create(array $attributes)
+{
+	$model = new static($attributes);
+
+	$model->save();
+
+	return $model;
+}
+```
+
+*example*
+
+```php
+// app/routes.php
+
+Route::get('save', function()
+{
+	Group::create(array(
+		'name' 			=> 'new group',
+		'description' 	=> 'this is the newest description'
+		));
+});
+```
+
+
+```php
+// app/models/Group.php
+
+class Group extends Eloquent {
+	
+	protected $fillable = array(
+		'name',
+		'description'
+		);
+}
+```
+
+* When we use `create()` we do not need to use save().
+* We must add a `protected $fillable` property to the Group model in order to avoid a `MassAssignmentException`.  In the `$fillable` array, we include all attributes that we allow to be mass-assignable.
+* We can use `protected $guarded` property if we only want to list those attributes which are not mass-assignable.
+
 
 ___
 
