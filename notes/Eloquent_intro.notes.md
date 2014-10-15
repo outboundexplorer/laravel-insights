@@ -296,6 +296,42 @@ ___
  */
 ```
 
+```php
+// app/routes.php
+
+Route::get('map', function()
+{
+    $collection = Groupie::all();
+    $new = $collection->map(function($instance)
+    {
+        return 'Group name: '.$instance->name;
+    });
+
+    var_dump($new);
+});
+```
+
+```php
+// OUTPUT >>>
+object(Illuminate\Database\Eloquent\Collection)#326 (1) { 
+	["items":protected]=> array(6) { 
+		[0]=> string(14) "Group name: 11" 
+		[1]=> string(14) "Group name: 22" 
+		[2]=> string(19) "Group name: Friends" 
+		[3]=> string(20) "Group name: friends2" 
+		[4]=> string(19) "Group name: Laravel" 
+		[5]=> string(24) "Group name: My Big group" 
+		} 
+}
+```
+
+* We assign the value of the `Collection::map()` method to a new variable.
+* The collection is then iterated in a similar way as the `Collection::each()` method, but instead we return each value that we require to be present in the new collection.
+
+___
+
+
+
 ___
 
 ###update()
@@ -326,15 +362,6 @@ Route::get('update-model', function()
 * We can use the `update()` method to directly update an instance with new values as required.
 * A constraint must be used with the `update()` method.  In the example we are using the `where()` constraint.
 
-
-	{
-		if ( ! $this->exists)
-		{
-			return $this->newQuery()->update($attributes);
-		}
-
-		return $this->fill($attributes)->save();
-	}
 
 ___
 
