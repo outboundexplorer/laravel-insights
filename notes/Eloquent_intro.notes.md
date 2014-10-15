@@ -378,6 +378,7 @@ Route::get('sort', function()
 * We can use the `sort()` method to sort the collection.
 * The closure is passed to the `uasort()` PHP method which uses integer values to compare two values.
 * The `sort()` method is destructive as it alters the original collection.
+
 ___
 
 ###reverse()
@@ -397,6 +398,7 @@ public function reverse()
 ```
 
 ```php
+// app/routes.php (example)
 
 Route::get('reverse', function()
 {
