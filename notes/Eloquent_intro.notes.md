@@ -349,9 +349,9 @@ public function sort(Closure $callback)
 	return $this;
 }
 ```
-
+*Example*
 ```php
-// app/routes.php (example)
+// app/routes.php 
 
 Route::get('sort', function()
 {
