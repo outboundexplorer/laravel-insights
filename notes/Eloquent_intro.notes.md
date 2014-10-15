@@ -331,7 +331,54 @@ object(Illuminate\Database\Eloquent\Collection)#326 (1) {
 ___
 
 
+###sort()
 
+```php
+// laravel/framework 
+
+/** illuminate/support/Collection.php
+ *
+ * Sort through each item with a callback.
+ *
+ * @param  \Closure  $callback
+ * @return $this
+ */
+public function sort(Closure $callback)
+{
+	uasort($this->items, $callback);
+
+	return $this;
+}
+```
+
+```php
+// app/routes.php (example)
+
+Route::get('sort', function()
+{
+    $collection = Group::all();
+
+    $collection->sort(function($a,$b)
+    {
+        $a = $a->name;
+        $b = $b->name;
+        if ($a === $b)
+        {
+            return 0;
+        }
+        return ($a > $b) ? 1: -1;
+    });
+
+    $collection->each(function($instance)
+    {
+        var_dump($instance->name);
+    });
+});
+```
+
+* We can use the `sort()` method to sort the collection.
+* The closure is passed to the `uasort()` PHP method which uses integer values to compare two values.
+* The `sort()` method is destructive as it alters the original collection.
 ___
 
 ###update()
