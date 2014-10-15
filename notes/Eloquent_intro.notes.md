@@ -168,6 +168,15 @@ Route::get('find-model', function()
 ___
 
 ###first()
+```php
+/**
+ * Get the first item from the collection.
+ *
+ * @param  \Closure   $callback
+ * @param  mixed      $default
+ * @return mixed|null
+ */
+```
 
 ```php
 // app/routes.php
@@ -274,6 +283,20 @@ Route::get('each', function()
 
 * We are able to use `foreach` as the `$collection` object is an array() of instances.
 
+___
+
+###map()  
+```php
+/** Collection::map()
+ *
+ * Run a map over each of the items.
+ *
+ * @param  \Closure  $callback
+ * @return static
+ */
+```
+
+___
 
 ###update()
 ```php
