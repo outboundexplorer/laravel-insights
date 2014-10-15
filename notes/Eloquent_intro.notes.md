@@ -397,7 +397,7 @@ public function reverse()
 }
 ```
 
-Example
+**Example**
 
 ```php
 // app/routes.php 
