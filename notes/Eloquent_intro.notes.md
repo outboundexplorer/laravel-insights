@@ -300,7 +300,8 @@ ___
 
 ###update()
 ```php
-/**  
+/** Model::update()
+ * 
  * Update the model in the database.
  *
  * @param  array  $attributes
