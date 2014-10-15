@@ -11,6 +11,7 @@ class Group extends Eloquent
 
 * This model is created to access the `groups` table in the database.
 * Note that the model is singular and that the table is plural. 
+
 ___
 
 ###saving data to the database
