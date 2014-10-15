@@ -563,19 +563,115 @@ Route::get('isempty', function() {
 ```
 
 ```php
-// OUTPUT >>>		bool(false) 
+// OUTPUT >>>		
+					bool(false) 
 					bool(true)
 ```
 
 ___
 
+###toArray()
 
+```php
+// laravel/framework/src/Illuminate/Support/Collection.php
 
+/**
+ * Get the collection of items as a plain array.
+ *
+ * @return array
+ */
+public function toArray()
+{
+	return array_map(function($value)
+	{
+		return $value instanceof ArrayableInterface ? $value->toArray() : $value;
 
+	}, $this->items);
+}
+```
+
+*example*
+
+```php
+// app/routes.php
+
+Route::get('toarray',function()
+{
+    $collection = Group::all();
+    var_dump($collection->toArray());
+});
+```
+
+* This will return a multi-dimensional array that represents the model instances from the collection and the data stored within each model instance.
+
+___
+
+###toJson()
+
+```php
+// laravel/framework/src/Illuminate/Support/Collection.php
+
+/**
+ * Get the collection of items as JSON.
+ *
+ * @param  int  $options
+ * @return string
+ */
+public function toJson($options = 0)
+{
+	return json_encode($this->toArray(), $options);
+}
+```
+
+*example*
+
+```php
+// app/routes.php
+
+Route::get('json', function()
+{
+    $collection = Group::all();
+    var_dump($collection->toJson());
+});
+```
+
+* The `toJson()` method can be used to transform the collection into a JSON string which represents the collection's contents. 
+
+___
+
+###count()
+
+```php
+// laravel/framework/src/Illuminate/Support/Collection.php
+
+/**
+ * Count the number of items in the collection.
+ *
+ * @return int
+ */
+public function count()
+{
+	return count($this->items);
+}
+```
+
+*example*
+
+```php
+// app/routes.php
+
+Route::get('count',function()
+{
+    $collection = Group::all();
+    var_dump($collection->count());
+});
+```
+
+* We can use the `count()` method to count the number of model instances.
 
 
 ____
-___
+
 
 ###update()
 ```php
