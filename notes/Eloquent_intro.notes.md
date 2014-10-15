@@ -129,6 +129,13 @@ Route::get('model', function()
 ___
 
 ###using all() to return a *Collection* of model instances
+```php
+/**
+ * Get all of the items in the collection.
+ *
+ * @return array
+ */
+```
 
 ```php
 // app/routes.php
@@ -227,9 +234,56 @@ Route::get('pop', function()
 
 ___
 
+###each()
+```php
+/**
+ * Execute a callback over each item.
+ *
+ * @param  \Closure  $callback
+ * @return $this
+ */
+```
+
+```php
+// app/routes.php
+
+Route::get('each', function()
+{
+    $collection = Group::all();
+    $collection->each(function($group)
+    {
+        var_dump($group->name);
+    });
+});
+```
+
+Which is the same as 
+
+```php 
+// app/routes.php
+
+Route::get('each', function()
+{
+	$collection = Group::all();
+	foreach ($collection as $instance)
+	{
+		var_dump($instance->name);
+	}
+});
+```
+
+* We are able to use `foreach` as the `$collection` object is an array() of instances.
 
 
 ###update()
+```php
+/**  
+ * Update the model in the database.
+ *
+ * @param  array  $attributes
+ * @return bool|int
+ */
+```
 
 ```php
 // app/routes.php
@@ -247,6 +301,16 @@ Route::get('update-model', function()
 
 * We can use the `update()` method to directly update an instance with new values as required.
 * A constraint must be used with the `update()` method.  In the example we are using the `where()` constraint.
+
+
+	{
+		if ( ! $this->exists)
+		{
+			return $this->newQuery()->update($attributes);
+		}
+
+		return $this->fill($attributes)->save();
+	}
 
 ___
 
