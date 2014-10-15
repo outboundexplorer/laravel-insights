@@ -397,8 +397,10 @@ public function reverse()
 }
 ```
 
+Example
+
 ```php
-// app/routes.php (example)
+// app/routes.php 
 
 Route::get('reverse', function()
 {
