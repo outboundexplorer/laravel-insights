@@ -380,6 +380,44 @@ Route::get('sort', function()
 * The `sort()` method is destructive as it alters the original collection.
 ___
 
+###reverse()
+
+```php
+// laravel\framework\src\Illuminate\Support\Collection.php
+
+/**
+ * Reverse items order.
+ *
+ * @return static
+ */
+public function reverse()
+{
+	return new static(array_reverse($this->items));
+}
+```
+
+```php
+
+Route::get('reverse', function()
+{
+    $collection = Group::all();
+
+    $collection->each(function($instance)
+    {
+        var_dump($instance->name);
+    });
+
+    $reverse = $collection->reverse();
+
+    $reverse->each(function($instance)
+    {
+        var_dump($instance->name);
+    });
+});
+```
+
+___
+
 ###update()
 ```php
 /** Model::update()
