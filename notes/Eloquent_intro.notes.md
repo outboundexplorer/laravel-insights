@@ -334,10 +334,9 @@ ___
 ###sort()
 
 ```php
-// laravel/framework 
+// laravel\framework\src\Illuminate\Support\Collection.php 
 
-/** illuminate/support/Collection.php
- *
+/** 
  * Sort through each item with a callback.
  *
  * @param  \Closure  $callback
