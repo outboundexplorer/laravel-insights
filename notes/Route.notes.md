@@ -217,3 +217,31 @@ Route::group(array('prefix' => 'songs'), function()
 * the three routes in the example are accessible from the URIs `/songs/first`,`/songs/second`,`songs/third`
 
 ___
+
+###creating RESTful routes
+
+```php
+// app/routes.php
+
+Route::resource('groups','GroupsController.php');
+```
+
+```php
+// ROUTES >>> 
+
+|			| GET|HEAD groups                                        | groups.index   | GroupsController@index    
+|           | GET|HEAD groups/create                                 | groups.create  | GroupsController@create   
+|           | POST groups                                            | groups.store   | GroupsController@store   
+|           | GET|HEAD groups/{groups}                               | groups.show    | GroupsController@show    
+|           | GET|HEAD groups/{groups}/edit                          | groups.edit    | GroupsController@edit   
+|           | PUT groups/{groups}                                    | groups.update  | GroupsController@update  
+|           | PATCH groups/{groups}                                  |                | GroupsController@update   
+|           | DELETE groups/{groups}                                 | groups.destroy | GroupsController@destroy  
+```
+
+* The first parameter is used to define the URI for the route.  
+* The second parameter is used to define which controller to use with the route. 
+
+___
+
+
