@@ -746,6 +746,7 @@ Route::get('count',function()
 ____
 
 
+
 ###update()
 ```php
 /** Model::update()
