@@ -118,6 +118,7 @@ return Redirect::route('faqs');
 ```
 
 * redirect to the named route 'faqs'
+* This does not work if there is an underscore in the domain name (All domains do not allow for underscores -- my_domain.com is not allowed). 
 
 ___
 
