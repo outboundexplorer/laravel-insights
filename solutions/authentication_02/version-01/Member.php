@@ -1,8 +1,5 @@
 <?php
-/**
- * Date: 13/10/2014
- * Time: 14:51
- */
+// app/models/Member.php   (version-01)
 
 
 class Member extends Eloquent {

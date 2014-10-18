@@ -1,8 +1,5 @@
 <?php
-/**
- * Date: 13/10/2014
- * Time: 14:51
- */
+// app/models/Member.php   (version-03)
 
 
 class Member extends Eloquent  {
@@ -26,15 +23,13 @@ class Member extends Eloquent  {
      *          this data is passed to the function.
      * Note 02: We do not need to reference as Member::$static as we are within the class that is referencing
      *          this.
-    public function isValid()
-    {
-        $validator = Validator::make(Input::all(),static::$rules);
-
-        ....
-        ....other logic
-    }
-    */
-
+		public function isValid()
+		{
+			$validator = Validator::make(Input::all(),static::$rules);
+			....
+			....other logic
+		}
+     */
     public static function dataIsValid($data)
     {
         $validator = Validator::make($data, static::$rules);

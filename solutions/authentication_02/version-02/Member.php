@@ -1,8 +1,5 @@
 <?php
-/**
- * Date: 13/10/2014
- * Time: 14:51
- */
+// app/models/Member.php   (version-02)
 
 
 class Member extends Eloquent  {
@@ -14,7 +11,10 @@ class Member extends Eloquent  {
         'password'
     );
 
-    public static $rules = array(
+    /*
+	 * In this version the rules have been defined in the model.
+	 */
+	public static $rules = array(
         'username' => 'required',
         'password' => 'required'
     );
