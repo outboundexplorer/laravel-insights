@@ -1,4 +1,10 @@
 ```php
+// show all artisan commands
+
+php artisan
+```
+
+```php
 // create a new controller called GroupsController.php
 
 php artisan controller:make GroupsController
