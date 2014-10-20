@@ -127,7 +127,8 @@ GRANT SELECT ON *.* TO user_name@localhost
      	In general, unless data is supposed to be kept private, all users should be able to view it. A debatable point, and most databases will only grant SELECT privileges on particular databases. There is no way to grant privileges on all databses EXCEPT specifically enumerated ones.
  
 ```php
-// Grant all privalages on database_name for all tables to username@localhost.  Persmissions list: ALTER,CREATE, DELETE, DROP, INDEX, INSERT, SELECT, UPDATE.
+// Grant all privileges on database_name for all tables to username@localhost.  
+// Permissions list: ALTER,CREATE, DELETE, DROP, INDEX, INSERT, SELECT, UPDATE.
 
 GRANT ALL ON database_name.* TO username@localhost [IDENTIFIED BY 'password'];
 ```
