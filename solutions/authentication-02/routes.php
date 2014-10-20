@@ -1,27 +1,30 @@
 <?php
-/*
- * Route::get('/', function()
-    {
-        User::create(array(
-        'username' => 'AndrewRoddam',
-        'email'    => 'andyroddam@gmail.com',
-        'password' => Hash::make('1234')
-       ));
-    });
-    return 'Done';
- *
- *
- */
+// app/routes.php
 
-    /*
-     * Alternatively we could have used:
-     *
-     * $user = new User;
-     * $user->username = 'AndrewRoddam';
-     * $user->email = 'andyroddam@gmail.com';
-     * $user->password = Hash::make('1234');
-     * $user->save();
-     */
+
+/* Lets start by creating a user so that we are able to test our authentication.
+
+ * Alternatively we could have used:
+ *
+ * $user = new User;
+ * $user->username = 'AndrewRoddam';
+ * $user->email = 'andyroddam@gmail.com';
+ * $user->password = Hash::make('1234');
+ * $user->save();
+ */
+Route::get('/', function()
+{
+	User::create(array(
+	'username' => 'AndrewRoddam',
+	'email'    => 'andyroddam@gmail.com',
+	'password' => Hash::make('1234')
+   )); 
+
+return 'Done';
+
+});
+   
+
 
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
@@ -33,7 +36,4 @@ Route::get('admin',function()
 {
     return 'Admin Page';
 })->before('auth');
-
-Route::resource('members','MembersController');
-
 
