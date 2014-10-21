@@ -4,7 +4,6 @@
 
 ```php
 // users table
-
 | Field          | Type             | Null | Key | Default             | Extra          |
 +----------------+------------------+------+-----+---------------------+----------------+
 | id             | int(10) unsigned | NO   | PRI | NULL                | auto_increment |
@@ -19,7 +18,6 @@
 
 
 // posts table
-
 +------------+------------------+------+-----+---------------------+----------------+
 | Field      | Type             | Null | Key | Default             | Extra          |
 +------------+------------------+------+-----+---------------------+----------------+
@@ -120,5 +118,13 @@ Route::get('force-delete', function()
 });
 ```
 
+* Both the `users` & `posts` table must have a `deleted_at` column in order to use soft deleting.
+* We need to include `use SoftDeletingTrait` within our model class.
+* As we have created a relationship between our models, we are able to chain our `posts` to the `user` 
+and delete the relevant posts at the same time.
+* `forceDelete()` will permanently delete the database record.
+* `restore()` can only be used to restore records that have been soft-deleted.
+
+___ 
 
 
