@@ -89,7 +89,7 @@ public function edit($id)
 * It is recommended to not include `Form::open()` and `Form::close()` within the partial view so that
 we can maintain greater flexibility of where the form is sent.
 * We can share variables between a view and the partial view that it includes by passing an array of variables
-as the second parameter `@include('layouts.partials.form`, array('buttonText' => 'Update User))`.  (Note: this 
+as the second parameter `@include('layouts.partials.form, array('buttonText' => 'Update User))`.  (Note: this 
 is accessed using `$buttonText` in the partial view.
 
 ___  
