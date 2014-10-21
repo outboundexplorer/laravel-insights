@@ -88,4 +88,8 @@ public function edit($id)
 * We can extract parts of our form to a partial view by using `@include`.
 * It is recommended to not include `Form::open()` and `Form::close()` within the partial view so that
 we can maintain greater flexibility of where the form is sent.
-* We can  
+* We can share variables between a view and the partial view that it includes by passing an array of variables
+as the second parameter `@include('layouts.partials.form`, array('buttonText' => 'Update User))`.  (Note: this 
+is accessed using `$buttonText` in the partial view.
+
+___  
