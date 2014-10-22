@@ -245,4 +245,44 @@ DELETE groups/{groups}              | groups.destroy | GroupsController@destroy
 
 ___
 
+###implicit controller routing
 
+```php
+// app/routes.php
+
+Route::controller('pages', 'PagesController')
+```
+
+```php
+// app/controllers/PagesController.php
+
+class PagesController extends BaseController {
+
+    public function getIndex()
+	{
+		return 'Home Page';
+	}
+	
+	public function getAdmin()
+    {
+        return 'Admin Page';
+    }
+
+    public function getGuestPage()
+    {
+        return 'Guest Page';
+    }
+}
+```
+
+* When we use implicit controller routing, we can access our controller methods implicitly. 
+The browser will examine the URI and consider the type of HTTP verb used.  `pages/admin` with a 
+`GET` request will call the `getAdmin()` method.
+* If the controller action contains multiple words, then the URI required will require `dash` syntax.
+`pages/guest-page` will call the `getGuestPage()` method.
+* An issue with implicitly routing to controllers is that they will also match any number of arguments 
+in the URI. `pages/guest-page` matches the same as `pages/guest-page/apples/bananas`
+* `Route::controller()` is not proper RESTful routing.  
+* Use `Route::resource()` for proper RESTful routing.
+
+___
