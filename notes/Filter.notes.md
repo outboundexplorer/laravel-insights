@@ -137,7 +137,7 @@ Route::get('/', array(
 
 * By using a Filter class instead of a Closure we are able to write code that will be much easier for testing.
 
-* In order for our new class to be registered with composer we must add **app/filters** to the **composer.json classmap** and then run **composer dump-autload –o**
+* In order for our new class to be registered with composer we must add **app/filters** to the **composer.json classmap** and then run **composer dump-autoload –o**
 
 * The **routes.php** file is unchanged
    

@@ -89,9 +89,13 @@ composer require laracasts/utilities:1.0.1
 
 Route::get('pass-to-javascript', function()
 {
-   JavaScript::put(array('name' => 'insiited'));
-    return View::make('hello');
+    JavaScript::put(array(
+        'name'      => 'Andy Roddam',
+        'age'       => 38,
+        'letters'   => array('a','b')
+    ));
 
+    return View::make('hello');
 });
 ```
 
@@ -130,7 +134,7 @@ return [
     | That way, from your JS, you may do something like `Laracasts.myVar`.
     |
     */
-    'js_namespace' => 'insiite.vars'
+    'js_namespace' => 'Insiite'
 
 ];
 ```
@@ -163,8 +167,10 @@ return [
 Hello this is the footer.
 
 <script>
-    alert(name);
+    alert(Insiite.name);
+	//alert([Insiite.name,Insiite.age,Insiite.letters]);
 </script>
 ```
 
+* Note in JavaScript we must use `[]` to indicate an array and not the `array()` annotation. 
 ___
