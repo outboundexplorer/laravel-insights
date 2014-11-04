@@ -13,17 +13,16 @@ Route::get('/lessons/{slug}', function()
     $lesson = 'Amazing Lesson';
     return View::make('lesson', compact('lesson'));
 });
-
-
-/*
- * 1) We can use the second parameter of the make() function to pass arguments.
- * 2) The second parameter must be an array.  We can use the compact() function
- *    to create an array with the argument as the key.
- *     
- *    compact('lesson') = array('lesson' => 'Amazing Lesson')
- */ 
 ```
 
+
+* We can use the second parameter of the make() function to pass arguments.
+* The second parameter must be an array.  We can use the compact() function
+to create an array with the argument as the key. 
+`compact('lesson') = array('lesson' => 'Amazing Lesson')`
+
+
+___
 
 ```php
 // app/views/layout.blade.php
