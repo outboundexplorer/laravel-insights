@@ -16,13 +16,14 @@ Route::get('/lessons/{slug}', function()
 ```
 
 
-* We can use the second parameter of the make() function to pass arguments.
-* The second parameter must be an array.  We can use the compact() function
+* We can use the second parameter of the `make()` function to pass arguments.
+* The second parameter must be an array.  We can use the php `compact()` function
 to create an array with the argument as the key. 
 `compact('lesson') = array('lesson' => 'Amazing Lesson')`
 
 
 ___
+
 
 ```php
 // app/views/layout.blade.php
@@ -39,7 +40,11 @@ ___
      </body>
  </html>
 ```
- 
+
+* We can pass a second default parameter to the `@yield()` function.
+
+
+___
  
  
 
@@ -68,3 +73,5 @@ ___
 @stop
 ```
 
+* We can use the php `strip_tags()` function to make sure that no <html> tags are 
+included in the description.
