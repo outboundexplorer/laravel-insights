@@ -60,6 +60,8 @@ ___
 @stop
 ```
 
+____
+
 
 ```php
 // app/views/lesson.blade.php
