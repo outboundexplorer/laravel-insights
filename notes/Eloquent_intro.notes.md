@@ -1256,3 +1256,156 @@ Route::get('laravel-search',function()
 
 ___
 
+
+
+
+Route::get('/all-users', function()
+{
+    $users = User::all()->toArray();
+    var_dump ($users);
+});
+
+OUTPUT>>> This returns an multidimensional array.
+
+___
+
+Route::get('/all-users2', function()
+{
+    $users = User::all();
+    var_dump($users);
+});
+
+OUTPUT>>> This returns a collection object with a single 'items' property.  The 'items' property is an array of all the model objects.
+
+
+
+____
+
+
+Route::get('/array-access', function()
+{
+    $users = User::all();
+    var_dump($users[0]);
+});
+
+OUTPUT>>> this will return an object from the `items` property array at position [0]
+
+This is using the ArrayAccess interface which is basically allowing us to directly access the `items` property array of objects as though the collection was the `items` array itself.
+
+___
+
+
+
+Route::get('/countable', function()
+{
+    $users = User::all();
+    return count($users);
+});
+
+This is using the Countable interface which is basically allowing us to count the number of objects in the `items` property array.  SO basically it is treating the `items` property array as though it is the object itself.
+
+___
+
+Jsonable Interface
+
+Route::get('/JsonableInterface', function()
+{
+    $users = User::all()->toJson();
+    return $users;
+});
+
+This will return a Json array 
+
+___
+
+###accessing a single object from the collection array of objects
+
+Route::get('/first-user', function()
+{
+    $users = User::all();
+    var_dump($users->first());
+    return $users->first();
+});
+
+This will place all instances of user into the `items` property array of the $users collection object.  Eloquent will then allow us to access the `items` property by directly calling methods on the $users object.  This example will return the first $user as an object.
+
+(more: accessing an instance of the model and then casting it to an array)
+___
+
+###accessing an instance of the model and then casting it to an array
+
+```php
+Route::get('/first-user-toArray', function()
+{
+    $users = User::all();
+    var_dump($users->first()->toArray());
+});
+```
+This will return the first user as an array.
+
+(extend: accessing a single object from the collection array of objects) 
+
+___
+
+###converting a standard array into a Collection object
+
+Route::get('/convert-array-to-collection', function()
+{
+    $friends = array(
+        0 => array(
+            'name' => 'Andy'
+        ),
+        1 => array(
+            'name' => 'Peter'
+        ),
+        2 => array(
+            'name' => 'Paul'
+        )
+    );
+
+    $friends = new Illuminate\Support\Collection($friends);
+
+    return $friends->first();
+});
+
+
+(source: https://laracasts.com/lessons/arrays-on-steroids video-08:20)
+
+By creating a $friends object which is an instance of the COllection class, we are able to access the Collection class in some useful ways.
+
+(extend: accessing a single object from the collection array of objects)
+
+___
+
+###using Collection class to splice a standard array
+
+
+Route::get('/convert-array-to-collection-and-splice', function()
+{
+    $friends = array(
+        0 => array(
+            'name' => 'Andy'
+        ),
+        1 => array(
+            'name' => 'Peter'
+        ),
+        2 => array(
+            'name' => 'Paul'
+        )
+    );
+
+    $friends = new Illuminate\Support\Collection($friends);
+    $newFriends = $friends->splice(1,1);
+    return array($friends,$newFriends);
+});
+
+* The `splice()` method in the example will remove the `object 1` from the $friends collection object and will be inserted into a new $newFriends collection object.
+
+
+(extend: converting a standard array into a Collection object)
+
+(source: https://laracasts.com/lessons/arrays-on-steroids video-09:40)
+
+___
+
+

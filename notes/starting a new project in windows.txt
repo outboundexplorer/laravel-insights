@@ -1,0 +1,117 @@
+Starting a completely new project from Windows:
+
+1. Set up the environment as described in homestead.notes.md
+
+2. C:\Users\Andy> cd C:\Users\Andy\CodeLab\projects
+
+3. C:\Users\Andy\CodeLab\projects> composer create-project laravel/laravel testlab20 (note composer must be already installed globally on machine or within the C:\Users\Andy\CodeLab\projects path)
+
+Alternatively, in order to allow us to do everything using linux commands, we can use Git Bash
+
+There are several ways we could open this.  Either go to the folder we want to open Git Bash and right click and select Git Bash.
+
+Or alternatively, we could use `start "" "%ProgramFiles%\Git\bin\sh.exe" --login` from the command line.  (need to check this!!)
+
+
+4. Open project in PhpStorm
+
+SSH into 127.0.0.1
+
+vagrant@homestead:~$ mysql -uhomestead -p
+secret
+
+mysql: exit (from mysql)
+
+// app/config/app.php
+'debug' => 'true'
+
+
+// app/config/database.php
+'database' => 'testlab20',
+'username' => 'homestead',
+'password' => 'secret',...
+
+
+C:\Users\Andy\CodeLab\projects\testlab20> php artisan migrate:make create_users_table --create=users
+Note that this command can also be carried out from `vagrant@homestead:~/projects/testlab20$`
+
+```php
+// app/database/migrations/2014_create_users_table.php
+
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateUsersTable extends Migration {
+
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('users', function(Blueprint $table)
+		{
+			$table->increments('id');
+            $table->string('username');
+            $table->string('email');
+			$table->timestamps();
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('users');
+	}
+
+}
+```
+
+When running or rolling back migrations, these must be run from within the VM and cannot be run from `C:\Users\Andy\CodeLab\projects\testlab20>`.  This is because the VM uses 3306
+and the host uses 33060.
+
+```php
+vagrant@homestead:~/projects/testlab20$ php artisan migrate
+```
+
+____
+
+Access the database from MySQL WORKBENCH to make sure that we are able to keep an eye on what is happening.
+
+
+
+###MySQL Workbench
+
+Connection Method: Standard TCP/IP over SSH
+
+SSH Hostname: 127.0.0.1:2222
+
+SSH Username: vagrant
+
+SSH Password: <none>
+
+SSH Key File: C:\Users\Andy\.vagrant.d\insecure_private_key
+
+MySQL Hostname: 127.0.0.1
+
+MySQL Server Port: 3306
+
+username: root
+
+Password: root
+
+
+___
+
+
+
+
+
+
