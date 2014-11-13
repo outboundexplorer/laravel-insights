@@ -1,0 +1,101 @@
+
+Source:  https://medium.com/laravel-4/laravel-4-authentication-e8d93c9ce0e2
+
+
+Title: Use UserTrait, RemindableTrait within our User class
+
+Note: We can use the Usertrait and Remindable trait within our models in order to have access to the functions getAuthIdentifier(), getRememberToken(), setRememberToken(), etc.
+
+Onwards:
+Backwards:
+
+More: Here is an example of implementing these Traits
+
+```
+// app/models/User.php
+
+<?php
+
+use Illuminate\Auth\UserTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\Reminders\RemindableInterface;
+
+class User extends Eloquent implements UserInterface, RemindableInterface {
+
+	use UserTrait, RemindableTrait;
+
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'users';
+
+	/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
+	protected $hidden = array('password', 'remember_token');
+
+}
+```
+
+_____
+
+creating a *Seeder.php file
+
+```php
+// app/database/seeds/UsersTableSeeder.php
+
+<?php
+
+class UsersTableSeeder extends DatabaseSeeder {
+    
+    public function run()
+    {
+        $users = [
+            [
+                "username" => "outboundexplorer",
+                "password" => Hash::make('password'),
+                "email"    => "andybendyman@hotmail.com"
+            ]
+        ];
+        
+        foreach ($users as $user) 
+        {
+            User::create($user);
+        }
+    }
+}
+
+
+
+```php
+// app/database/seeds/DatabaseSeeder.php
+
+<?php
+
+class DatabaseSeeder extends Seeder {
+
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		Eloquent::unguard();
+        $this->call('UsersTableSeeder');
+	}
+
+}
+```
+
+php artisan db:seed
+
+____
+
+
+

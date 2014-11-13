@@ -1,0 +1,69 @@
+
+Version 1:
+
+```php
+// Homestead/scripts/create-database.sh
+
+#!/usr/bin/env bash
+
+#clean up first
+echo "Dropping Groupie database if it already exists.";
+mysql -uhomestead -psecret -e "DROP DATABASE IF EXISTS groupie";
+
+echo "Creating new database groupie";
+mysql -uhomestead -psecret -e "CREATE DATABASE groupie";
+```
+
+```php
+// Homestead/scripts/homestead.rb (addition to original)
+
+# Create project databases
+config.vm.provision "shell" do |s|
+  s.path = "./scripts/create-database.sh"
+end
+```
+
+____
+
+Version 2:
+
+```php
+// Homestead/scripts/create-database.sh
+
+#!/usr/bin/env bash
+DB=$1;
+
+#clean up first
+echo "Dropping $DB database if it already exists.";
+mysql -uhomestead -psecret -e "DROP DATABASE IF EXISTS $DB";
+
+echo "Creating new database $DB";
+mysql -uhomestead -psecret -e "CREATE DATABASE $DB";
+```
+
+```php
+// Homestead/scripts/homestead.rb (addition to original)
+
+# Create project databases
+settings["databases"].each do |db|
+  config.vm.provision "shell" do |s|
+	s.path = "./scripts/create-database.sh"
+	s.args = [db["name"]]
+  end
+end
+```
+
+```php
+// Homestead/Homestead.yaml (added content)
+
+sites:
+    - map: groupie
+      to: /home/vagrant/projects/groupie/public
+    - map: testboy
+      to: /home/vagrant/projects/testboy/public
+
+databases:
+    - name: groupie
+    - name: testboy
+```
+
