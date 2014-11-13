@@ -85,6 +85,8 @@ vagrant@homestead:~/projects/myapp$ ls
 app artisan bootstrap composer.json public vendor ...........
 
 
+When using `php artisan migrate` this must be done from the project folder with an SSH connnetion.
+
 vagrant@homestead:~$ mysql -uhomestead -p
 Password: secret
 
@@ -136,12 +138,32 @@ variables:
       value: local
 
 
+Note: when editing the Homestead.yaml file, it is important that only spaces are used to position the text.  If we use Tabs then there is a strong chance of getting an error.
+	  
 
 
 #ANDY ADDED 04-11-2014
 192.168.10.10		myapp
 192.168.10.10		second-app
 
+
+
+
+___
+
+###errors and problems
+
+1) When loading the virtual machine, ran into the following error (0x80004005).  This solved itself by restarting PC (not sure what the problem was).
+
+  
+
+____
+
+###A note on vagrant destroy
+
+When we use vagrant destroy, this will also remove all database info.  this means that if we have created a database and have tables which have already been populated with data.  If anything was created outside of the php artisan migration (such as the database itself), this will be lost when the VM is re-created.  Note that when we power off our computer then the VM is also destroyed.
+
+___
 
 
 

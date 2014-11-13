@@ -80,3 +80,12 @@ Route::get('all-users',function()
 
 
 
+Other:
+
+we can bascially use startEvent() and endEvent() to wrap the query that we want.  This will then basically just simply calculate the amount of time needed between the two positions in the code.
+
+Clockwork::startEvent('query','Query 1');
+$link = Link::where('url','=',Input::get('link'))
+			->first();
+Clockwork::endEvent('query');
+

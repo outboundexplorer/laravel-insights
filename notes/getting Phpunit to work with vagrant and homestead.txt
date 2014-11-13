@@ -1,0 +1,22 @@
+How to run phpunit tests from vagrant
+
+C:\Users\Andy\ProjectRoom\projects\testlab> composer require phpunit/phpunit:4.*
+
+(SSH terminal)
+vagrant@homestead:~/projects/testlab$ vender/bin/phpunit
+
+```php
+Local terminal
+// C:\Users\Andy\ProjectRoom\Homestead\aliases
+
+alias phpunit='vendor/bin/phpunit'
+```
+need to vagrant reload
+
+now i can run wiht phpunit as: 
+(SSH)
+vagrant@homestead:~/projects/testlab$ phpunit
+
+// for more detailed test information
+vagrant@homestead:~/projects/jobman$ phpunit --tap
+

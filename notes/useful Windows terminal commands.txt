@@ -1,0 +1,15 @@
+windows terminal commands
+
+cd ..
+
+mkdir new-project
+
+dir
+
+
+
+
+___
+
+
+	

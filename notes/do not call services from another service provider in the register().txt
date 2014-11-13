@@ -1,0 +1,3 @@
+Never call services within the register() which
+are provided by another service provider. If this is needed, do it in a boot() method of the
+provider instead.

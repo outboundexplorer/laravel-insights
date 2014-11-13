@@ -1,0 +1,8 @@
+Command Line stuff (linux-Ubuntu)
+
+remove commands folder
+rm -rf commands 
+
+
+make directory
+mkdir src/GSD
